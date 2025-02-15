@@ -202,46 +202,10 @@
             &lt;section class=&#34;section&#34;&gt;
                 &lt;h1&gt;$ whoami&lt;/h1&gt;
                 &lt;p&gt;
-                    &lt;strong&gt;Blog:&lt;/strong&gt; &lt;a href=&#34;https://zero.shotlearni.ng/&#34;&gt;zero.shotlearni.ng&lt;/a&gt;&lt;br&gt;
+                    &lt;strong&gt;Blog:&lt;/strong&gt; &lt;a href=&#34;https://zero.shotlearni.ng/home/&#34;&gt;zero.shotlearni.ng&lt;/a&gt;&lt;br&gt;
                     &lt;strong&gt;Email:&lt;/strong&gt; &lt;a href=&#34;mailto:devmhyun@gmail.com&#34;&gt;devmhyun@gmail.com&lt;/a&gt;&lt;br&gt;
-                    &lt;strong&gt;Github:&lt;/strong&gt; &lt;a href=&#34;https://github.com/dev-mhyun&#34;&gt;github.com/dev-mhun&lt;/a&gt;&lt;br&gt;
+                    &lt;strong&gt;Github:&lt;/strong&gt; &lt;a href=&#34;https://github.com/dev-mhyun&#34;&gt;github.com/dev-mhyun&lt;/a&gt;&lt;br&gt;
                 &lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>CVE-2023-49965 | SPACEX / STARLINK (ENG)</title>
-      <link>http://localhost:1313/blog/2023-starlink-router-gen2-xss-eng/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/blog/2023-starlink-router-gen2-xss-eng/</guid>
-      <description>Found by Sehyoung Lee @doublemnsingleh</description>
-    </item>
-    
-    <item>
-      <title>CVE-2023-49965 | SPACEX / STARLINK (KOR)</title>
-      <link>http://localhost:1313/blog/2023-starlink-router-gen2-xss-kor/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/blog/2023-starlink-router-gen2-xss-kor/</guid>
-      <description>Found by Sehyoung Lee @doublemnsingleh</description>
-    </item>
-    
-    <item>
-      <title>CVE-2023-52235 | SPACEX / STARLINK (ENG)</title>
-      <link>http://localhost:1313/blog/2023-starlink-dns-rebinding-attack-eng/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/blog/2023-starlink-dns-rebinding-attack-eng/</guid>
-      <description>Found by Sehyoung Lee @doublemnsingleh</description>
-    </item>
-    
-    <item>
-      <title>CVE-2023-52235 | SPACEX / STARLINK (KOR)</title>
-      <link>http://localhost:1313/blog/2023-starlink-dns-rebinding-attack-kor/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/blog/2023-starlink-dns-rebinding-attack-kor/</guid>
-      <description>Found by Sehyoung Lee @doublemnsingleh</description>
     </item>
     
     

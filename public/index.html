@@ -40,7 +40,7 @@
       var newWord = "KiMH";
       var letter_count = 0;
       var finished = false;
-      var totalTime = 8000;  
+      var totalTime = 5000;  
       var letterTime = totalTime / word.length;
 
       el.html("");
@@ -57,7 +57,7 @@
           $("span")[i].innerHTML = alphabet[c];
         }
         if (!finished) {
-          setTimeout(write, 20);
+          setTimeout(write, 10);
         }
       }
 
@@ -67,7 +67,7 @@
         letter_count++;
         if (letter_count >= word.length) {
           finished = true;
-          setTimeout(changeToKiMH, 50);
+          setTimeout(changeToKiMH, 10);
         } else {
           setTimeout(inc, letterTime);
         }
