@@ -1,0 +1,84 @@
+@font-face {
+  font-family: 'ubuntu mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/ubuntumono/v17/KFOjCneDtsqEr0keqCMhbCc6CsTYl4BO.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.main {
+    position: relative;
+    min-height: calc(100vh - var(--footer-height));
+    max-width: var(--main-width);
+    margin: auto;
+    padding: var(--gap);
+    padding-top: calc(var(--header-height) + var(--gap));
+}
+
+.page-header h1 {
+    font-size: 40px;
+}
+
+.pagination {
+    display: flex;
+}
+
+.pagination a {
+    color: var(--theme);
+    font-size: 13px;
+    line-height: 36px;
+    background: var(--primary);
+    border-radius: calc(36px / 2);
+    padding: 0 16px;
+}
+
+.pagination .next {
+    margin-inline-start: auto;
+}
+
+.social-icons {
+    padding: 12px 0;
+}
+
+.social-icons a:not(:last-of-type) {
+    margin-inline-end: 12px;
+}
+
+.social-icons a svg {
+    height: 26px;
+    width: 26px;
+}
+
+code {
+    font-family: "Ubuntu Mono";
+    direction: ltr;
+}
+
+.entry-header h1 code {
+/*     font-family: "Ubuntu Mono"; */
+    word-spacing: -7px;
+    direction: ltr;
+}
+div.highlight,
+pre {
+    position: relative;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font-size: 14px;
+    user-select: none;
+}
+
+div.highlight:hover .copy-code,
+pre:hover .copy-code {
+    display: block;
+}
