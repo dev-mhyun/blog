@@ -46,10 +46,10 @@
 {{- partial "home_info.html" . }}
 {{- end }}
 
-<p>IsHome: {{ .IsHome }}</p>
-<p>ProfileMode Enabled: {{ site.Params.profileMode.enabled }}</p>
+<!-- <p>IsHome: {{ .IsHome }}</p>
+<p>ProfileMode Enabled: {{ site.Params.profileMode.enabled }}</p> -->
 
-{{- if .IsHome }}
+<!-- {{- if .IsHome }} -->
 <article class="first-entry home-info">
   <header class="entry-header">
     <h1>
@@ -67,7 +67,7 @@
     </ul>
   </div>
 </article>
-{{- end }}
+<!-- {{- end }} -->
 
 {{- $term := .Data.Term }}
 {{- range $index, $page := $paginator.Pages }}
