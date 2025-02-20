@@ -2,7 +2,7 @@ name: Build & Deploy
 on:
   push:
     branches:
-      - gh-pages
+      - main  # 변경 필요: 주 브랜치 기준으로 빌드 (gh-pages 제외)
   pull_request:
 
 permissions:
@@ -10,7 +10,6 @@ permissions:
 
 jobs:
   build:
-    if: github.ref != 'refs/heads/gh-pages'
     name: Build
     runs-on: ubuntu-latest
     steps:
@@ -21,8 +20,10 @@ jobs:
 
       - name: Setup Hugo
         run: |
-          curl -L -o /tmp/hugo.tar.gz 'https://github.com/gohugoio/hugo/releases/download/v0.110.0/hugo_extended_0.110.0_linux-amd64.tar.gz'
-          tar -C /usr/local/bin --strip-components=1 -zxvf /tmp/hugo.tar.gz hugo_extended_0.110.0_linux-amd64/hugo
+          HUGO_VERSION=0.110.0
+          curl -L -o /tmp/hugo.tar.gz "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+          tar -zxvf /tmp/hugo.tar.gz -C /tmp
+          mv /tmp/hugo /usr/local/bin/hugo
 
       - name: Verify Hugo Installation
         run: hugo version
@@ -34,10 +35,14 @@ jobs:
         run: |
           touch public/.nojekyll
           git clone --depth 1 --branch gh-pages https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/dev-mhyun/blog.git built-site
-          cp -R public/* built-site/
+          rsync -av --delete public/ built-site/
           cd built-site
           git add .
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Updated site' || echo "No changes to commit"
-          git push origin gh-pages
+          if ! git diff --cached --exit-code; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Updated site'
+            git push origin gh-pages
+          else
+            echo "No changes to commit"
+          fi
