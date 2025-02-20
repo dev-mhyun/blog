@@ -1,3 +1,5 @@
+{{- define "main" }}
+
 {{- if (and site.Params.profileMode.enabled .IsHome) }}
 {{- partial "index_profile.html" . }}
 {{- else }} {{/* if not profileMode */}}
@@ -7,7 +9,7 @@
   {{- partial "breadcrumbs.html" . }}
   <h1>
     {{ .Title }}
-    {{- if and (or (eq .Kind `term`) (eq .Kind `section`)) (.Param "ShowRssButtonInSectionTermList") }}
+    {{- if and (or (eq .Kind term) (eq .Kind section)) (.Param "ShowRssButtonInSectionTermList") }}
     <a href="index.xml" title="RSS" aria-label="RSS">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round" height="23">
@@ -116,3 +118,5 @@
 {{- end }}
 
 {{- end }}{{/* end profileMode */}}
+
+{{- end }}{{- /* end main */ -}}
