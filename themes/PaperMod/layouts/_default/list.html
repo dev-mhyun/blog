@@ -9,7 +9,7 @@
   {{- partial "breadcrumbs.html" . }}
   <h1>
     {{ .Title }}
-    {{- if and (or (eq .Kind `term`) (eq .Kind `section`)) (.Param "ShowRssButtonInSectionTermList") }}
+    {{- if and (or (eq .Kind "term") (eq .Kind "section")) (.Param "ShowRssButtonInSectionTermList") }}
     <a href="index.xml" title="RSS" aria-label="RSS">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round" height="23">
@@ -48,6 +48,26 @@
 {{- partial "home_info.html" . }}
 {{- end }}
 
+{{- if .IsHome }}
+<article class="first-entry home-info">
+  <header class="entry-header">
+    <h1>
+      <code>[+] $ whoami</code>
+    </h1>
+  </header>
+  <div class="entry-content">
+    <p>
+      Hello, I'm Myeonghyun Kim, also known as DoubleMnSingleH and kimh. I live in Seoul, South Korea<br> and I'm ML/DL Engineer and AISec Researcher.
+      <a href="https://zero.shotlearni.ng/about">Read more..</a>
+    </p><br>
+    <ul>
+      <li><a href="mailto:devmhyun@gmail.com" title="Email"><strong>Email</strong></a> - For any inquiries or suggestions, feel free to reach out via email.</li>
+      <li><a href="https://github.com/dev-mhyun" title="GitHub."><strong>Github</strong></a> - Check out my projects by following me on GitHub.</li>
+    </ul>
+  </div>
+</article>
+{{- end }}
+
 {{- $term := .Data.Term }}
 {{- range $index, $page := $paginator.Pages }}
 
@@ -55,12 +75,12 @@
 
 {{- $user_preferred := or site.Params.disableSpecial1stPost site.Params.homeInfoParams }}
 {{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) (not $user_preferred)) }}
-{{- $class = "first-entry" }}
+<!-- {{- $class = "first-entry home-info" }} -->
 {{- else if $term }}
 {{- $class = "post-entry tag-entry" }}
 {{- end }}
 
-<article class="{{ $class }}">
+<article class="post-entry tag-entry">
   {{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
   {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
   <header class="entry-header">
@@ -69,9 +89,10 @@
       {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
     </h2>
   </header>
-  {{- if (ne (.Param "hideSummary") true) }}
+  <!-- Added a custom param hideDescriptionInList  -->
+  {{- if (ne (.Param "hideDescriptionInList") true) }}
   <div class="entry-content">
-    <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    <p>{{ .Description }}</p>
   </div>
   {{- end }}
   {{- if not (.Param "hideMeta") }}
