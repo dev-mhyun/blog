@@ -39,5 +39,5 @@ jobs:
           git add .
           git config user.name 'dev-mhyun'
           git config user.email 'devmhyun@gmail.com'
-          git commit -m 'Updated site'
+          git commit -m 'Updated site' || true
           git push     
