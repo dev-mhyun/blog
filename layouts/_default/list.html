@@ -46,6 +46,9 @@
 {{- partial "home_info.html" . }}
 {{- end }}
 
+<p>IsHome: {{ .IsHome }}</p>
+<p>ProfileMode Enabled: {{ site.Params.profileMode.enabled }}</p>
+
 {{- if .IsHome }}
 <article class="first-entry home-info">
   <header class="entry-header">
