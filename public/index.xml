@@ -1,213 +1,194 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>DoubleMnSingleH</title>
-    <link>https://zero.shotlearni.ng/</link>
-    <description>Recent content on DoubleMnSingleH</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://zero.shotlearni.ng/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title></title>
-      <link>https://zero.shotlearni.ng/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://zero.shotlearni.ng/about/</guid>
-      <description>&lt;!DOCTYPE html&gt;
-&lt;html lang=&#34;en&#34;&gt;
-&lt;head&gt;
-    &lt;meta charset=&#34;UTF-8&#34;&gt;
-    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
-    &lt;title&gt;@DoubleMnSingleH&lt;/title&gt;
-    &lt;link rel=&#34;stylesheet&#34; href=&#34;https://fonts.googleapis.com/css2?family=Ubuntu+Mono&amp;display=swap&#34;&gt;
-    &lt;style&gt;
-        body {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
-            color: #ffffff;
-            font-family: &#39;Ubuntu Mono&#39;, monospace;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-            font-size: 14px;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-        }
-        body.loaded {
-            opacity: 1;
-        }
-        .container {
-            max-width: 800px;
-            width: 100%;
-            padding: 20px;
-            padding-top: 5vh;
-        }
-        h1, h2 {
-            color: #ffffff;
-            padding-bottom: 5px;
-            margin-bottom: 5px;
-            font-size: 1.5em;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
-        }
-        .section {
-            margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-        }
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .section p {
-            margin-top: 5px;
-        }
-        .header {
-            margin-bottom: 20px;
-        }
-        .header h1 {
-            margin: 0;
-            display: inline-block;
-            position: relative;
-            font-size: 1.8em;
-            padding-right: 15px;
-        }
-        .header h1::after {
-            content: &#39;|&#39;;
-            position: absolute;
-            right: 5px;
-            animation: blink 0.5s infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-        .item-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .item {
-            background-color: rgba(255, 255, 255, 0.03);
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.9em;
-            text-align: center;
-        }
-        .section-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-top: 25px;
-            margin-bottom: 10px;
-            padding-bottom: 5px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-        }
-        a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
-            position: relative;
-        }
-        a:hover {
-            color: #ffffff;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-        }
-        a::after {
-            content: &#39;&#39;;
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            bottom: -2px;
-            left: 0;
-            background-color: #ffffff;
-            visibility: hidden;
-            transform: scaleX(0);
-            transition: all 0.3s ease-in-out;
-        }
-        a:hover::after {
-            visibility: visible;
-            transform: scaleX(1);
-        }
-        .hall-of-fame a {
-            display: inline-block;
-            margin-bottom: 5px;
-            padding: 3px 8px;
-            background-color: rgba(255, 255, 255, 0.03);
-            border-radius: 3px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            word-break: break-word;
-        }
-        .hall-of-fame a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: translateX(5px);
-        }
-        .hall-of-fame a strong {
-            font-weight: bold;
-            color: #ffffff;
-        }
-        @media (max-width: 767px) {
-            body {
-                font-size: 14px;
-            }
-            .container {
-                padding: 10px;
-                padding-top: 3vh;
-            }
-            h1, h2 {
-                font-size: 1.4em;
-            }
-            .header h1 {
-                font-size: 1.6em;
-            }
-            .item-list {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            }
-            .section-title {
-                font-size: 1.2em;
-            }
-            .hall-of-fame a {
-                font-size: 0.9em;
-                padding: 2px 6px;
-            }
-        }
-        @media (min-width: 768px) {
-            body {
-                font-size: 16px;
-            }
-            h1, h2 {
-                font-size: 1.8em;
-            }
-            .header h1 {
-                font-size: 2em;
-            }
-            .item-list {
-                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            }
-            .section-title {
-                font-size: 1.4em;
-            }
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class=&#34;container&#34;&gt;
-        &lt;header class=&#34;header&#34;&gt;
-            &lt;h1&gt;&gt; &lt;span id=&#34;typed-text&#34;&gt;&lt;/span&gt;&lt;/h1&gt;
-        &lt;/header&gt;
-        &lt;main&gt;
-            &lt;section class=&#34;section&#34;&gt;
-                &lt;h1&gt;$ whoami&lt;/h1&gt;
-                &lt;p&gt;
-                    &lt;strong&gt;Blog:&lt;/strong&gt; &lt;a href=&#34;https://zero.shotlearni.ng/home/&#34;&gt;zero.shotlearni.ng&lt;/a&gt;&lt;br&gt;
-                    &lt;strong&gt;Email:&lt;/strong&gt; &lt;a href=&#34;mailto:devmhyun@gmail.com&#34;&gt;devmhyun@gmail.com&lt;/a&gt;&lt;br&gt;
-                    &lt;strong&gt;Github:&lt;/strong&gt; &lt;a href=&#34;https://github.com/dev-mhyun&#34;&gt;github.com/dev-mhyun&lt;/a&gt;&lt;br&gt;
-                &lt;/p&gt;</description>
-    </item>
-    
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>DoubleMnSingleH</title><link>https://zero.shotlearni.ng/</link><description>Recent content on DoubleMnSingleH</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://zero.shotlearni.ng/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://zero.shotlearni.ng/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zero.shotlearni.ng/about/</guid><description>&lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;head>
+&lt;meta charset="UTF-8">
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+&lt;title>@DoubleMnSingleH&lt;/title>
+&lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&amp;display=swap">
+&lt;style>
+body {
+background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+color: #ffffff;
+font-family: 'Ubuntu Mono', monospace;
+line-height: 1.6;
+margin: 0;
+padding: 0;
+opacity: 0;
+transition: opacity 0.5s ease-in-out;
+font-size: 14px;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: flex-start;
+}
+body.loaded {
+opacity: 1;
+}
+.container {
+max-width: 800px;
+width: 100%;
+padding: 20px;
+padding-top: 5vh;
+}
+h1, h2 {
+color: #ffffff;
+padding-bottom: 5px;
+margin-bottom: 5px;
+font-size: 1.5em;
+text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+.section {
+margin-bottom: 20px;
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+.section.visible {
+opacity: 1;
+transform: translateY(0);
+}
+.section p {
+margin-top: 5px;
+}
+.header {
+margin-bottom: 20px;
+}
+.header h1 {
+margin: 0;
+display: inline-block;
+position: relative;
+font-size: 1.8em;
+padding-right: 15px;
+}
+.header h1::after {
+content: '|';
+position: absolute;
+right: 5px;
+animation: blink 0.5s infinite;
+}
+@keyframes blink {
+0%, 100% { opacity: 1; }
+50% { opacity: 0; }
+}
+.item-list {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+gap: 10px;
+margin-top: 10px;
+}
+.item {
+background-color: rgba(255, 255, 255, 0.03);
+padding: 5px 10px;
+border-radius: 5px;
+font-size: 0.9em;
+text-align: center;
+}
+.section-title {
+font-size: 1.2em;
+font-weight: bold;
+margin-top: 25px;
+margin-bottom: 10px;
+padding-bottom: 5px;
+border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+color: #ffffff;
+}
+a {
+color: #ffffff;
+text-decoration: none;
+transition: color 0.3s ease, text-shadow 0.3s ease;
+position: relative;
+}
+a:hover {
+color: #ffffff;
+text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+a::after {
+content: '';
+position: absolute;
+width: 100%;
+height: 1px;
+bottom: -2px;
+left: 0;
+background-color: #ffffff;
+visibility: hidden;
+transform: scaleX(0);
+transition: all 0.3s ease-in-out;
+}
+a:hover::after {
+visibility: visible;
+transform: scaleX(1);
+}
+.hall-of-fame a {
+display: inline-block;
+margin-bottom: 5px;
+padding: 3px 8px;
+background-color: rgba(255, 255, 255, 0.03);
+border-radius: 3px;
+transition: background-color 0.3s ease, transform 0.3s ease;
+word-break: break-word;
+}
+.hall-of-fame a:hover {
+background-color: rgba(255, 255, 255, 0.1);
+transform: translateX(5px);
+}
+.hall-of-fame a strong {
+font-weight: bold;
+color: #ffffff;
+}
+@media (max-width: 767px) {
+body {
+font-size: 14px;
+}
+.container {
+padding: 10px;
+padding-top: 3vh;
+}
+h1, h2 {
+font-size: 1.4em;
+}
+.header h1 {
+font-size: 1.6em;
+}
+.item-list {
+grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+}
+.section-title {
+font-size: 1.2em;
+}
+.hall-of-fame a {
+font-size: 0.9em;
+padding: 2px 6px;
+}
+}
+@media (min-width: 768px) {
+body {
+font-size: 16px;
+}
+h1, h2 {
+font-size: 1.8em;
+}
+.header h1 {
+font-size: 2em;
+}
+.item-list {
+grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+.section-title {
+font-size: 1.4em;
+}
+}
+&lt;/style>
+&lt;/head>
+&lt;body>
+&lt;div class="container">
+&lt;header class="header">
+&lt;h1>> &lt;span id="typed-text">&lt;/span>&lt;/h1>
+&lt;/header>
+&lt;main>
+&lt;section class="section">
+&lt;h1>$ whoami&lt;/h1>
+&lt;p>
+&lt;strong>Blog:&lt;/strong> &lt;a href="https://zero.shotlearni.ng/home/">zero.shotlearni.ng&lt;/a>&lt;br>
+&lt;strong>Email:&lt;/strong> &lt;a href="mailto:devmhyun@gmail.com">devmhyun@gmail.com&lt;/a>&lt;br>
+&lt;strong>Github:&lt;/strong> &lt;a href="https://github.com/dev-mhyun">github.com/dev-mhyun&lt;/a>&lt;br>
+&lt;/p></description></item></channel></rss>

@@ -1,293 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@DoubleMnSingleH</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap">
-    <style>
-        body {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
-            color: #ffffff;
-            font-family: 'Ubuntu Mono', monospace;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-            font-size: 14px;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-        }
-        body.loaded {
-            opacity: 1;
-        }
-        .container {
-            max-width: 800px;
-            width: 100%;
-            padding: 20px;
-            padding-top: 5vh;
-        }
-        h1, h2 {
-            color: #ffffff;
-            padding-bottom: 5px;
-            margin-bottom: 5px;
-            font-size: 1.5em;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
-        }
-        .section {
-            margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-        }
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .section p {
-            margin-top: 5px;
-        }
-        .header {
-            margin-bottom: 20px;
-        }
-        .header h1 {
-            margin: 0;
-            display: inline-block;
-            position: relative;
-            font-size: 1.8em;
-            padding-right: 15px;
-        }
-        .header h1::after {
-            content: '|';
-            position: absolute;
-            right: 5px;
-            animation: blink 0.5s infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-        .item-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .item {
-            background-color: rgba(255, 255, 255, 0.03);
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.9em;
-            text-align: center;
-        }
-        .section-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-top: 25px;
-            margin-bottom: 10px;
-            padding-bottom: 5px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-        }
-        a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
-            position: relative;
-        }
-        a:hover {
-            color: #ffffff;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-        }
-        a::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            bottom: -2px;
-            left: 0;
-            background-color: #ffffff;
-            visibility: hidden;
-            transform: scaleX(0);
-            transition: all 0.3s ease-in-out;
-        }
-        a:hover::after {
-            visibility: visible;
-            transform: scaleX(1);
-        }
-        .hall-of-fame a {
-            display: inline-block;
-            margin-bottom: 5px;
-            padding: 3px 8px;
-            background-color: rgba(255, 255, 255, 0.03);
-            border-radius: 3px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            word-break: break-word;
-        }
-        .hall-of-fame a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: translateX(5px);
-        }
-        .hall-of-fame a strong {
-            font-weight: bold;
-            color: #ffffff;
-        }
-        @media (max-width: 767px) {
-            body {
-                font-size: 14px;
-            }
-            .container {
-                padding: 10px;
-                padding-top: 3vh;
-            }
-            h1, h2 {
-                font-size: 1.4em;
-            }
-            .header h1 {
-                font-size: 1.6em;
-            }
-            .item-list {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            }
-            .section-title {
-                font-size: 1.2em;
-            }
-            .hall-of-fame a {
-                font-size: 0.9em;
-                padding: 2px 6px;
-            }
-        }
-        @media (min-width: 768px) {
-            body {
-                font-size: 16px;
-            }
-            h1, h2 {
-                font-size: 1.8em;
-            }
-            .header h1 {
-                font-size: 2em;
-            }
-            .item-list {
-                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            }
-            .section-title {
-                font-size: 1.4em;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header class="header">
-            <h1>> <span id="typed-text"></span></h1>
-        </header>
-        <main>
-            <section class="section">
-                <h1>$ whoami</h1>
-                <p>
-                    <strong>Blog:</strong> <a href="https://zero.shotlearni.ng/home/">zero.shotlearni.ng</a><br>
-                    <strong>Email:</strong> <a href="mailto:devmhyun@gmail.com">devmhyun@gmail.com</a><br>
-                    <strong>Github:</strong> <a href="https://github.com/dev-mhyun">github.com/dev-mhyun</a><br>
-                </p>
-            </section>
-            <section class="section">
-                <h1>$ cat speaker.log</h1>
-                <p>
-                    <strong>2024.06.21:</strong> <a href=""><strong>CISC-S'24</strong>, 악성 파일 탐지 모델 취약성 분석 및 방어 프레임워크 우수 논문 발표</a><br>
-                    <strong>2024.11.12:</strong> <a href=""><strong>Soongil Univ. 전산학과 55주년 부스 </strong>, 악성 파일 탐지 모델 취약성 분석 및 방어 프레임워크</a>
-                </p>
-            </section>
-            <section class="section">
-                <h1>$ ls work-experience/</h1>
-                <p>
-                    • <a href=""><strong>CSEC</strong> Undergraduate Researcher </a><br>
-                    • <a href=""><strong>Stealien</strong> Technical Adviser </a><br>
-                    • <a href=""><strong>데이원 컴퍼니</strong> Instructor </a><br>
-                    
-                </p>
-            </section>
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>DoubleMnSingleH</title>
+<meta name=keywords content><meta name=description content="<!DOCTYPE html>
+
+
+    
+    
+    @DoubleMnSingleH
+    
+    
+
+
+    
+        
+            > 
+        
+        
             
-            <section class="section">
-                <h1>$ ls Activities/</h1>
-                <div class="section-title">Paper</div>
-                <div class="item-list" id="paper-list"></div>
+                $ whoami
+                
+                    Blog: zero.shotlearni.ng
+                    Email: devmhyun@gmail.com
+                    Github: github.com/dev-mhyun
+                "><meta name=author content><link rel=canonical href=https://zero.shotlearni.ng/about/><link crossorigin=anonymous href=/assets/css/stylesheet.min.ee76fb426c0b0a062af16e9b839ccb78a4aba1af3dd8fbd1d3efb3e8cc1cb6f9.css integrity="sha256-7nb7QmwLCgYq8W6bg5zLeKSroa892PvR0++z6Mwctvk=" rel="preload stylesheet" as=style><script defer crossorigin=anonymous src=/assets/js/highlight.min.2eadbb982468c11a433a3e291f01326f2ba43f065e256bf792dbd79640a92316.js integrity="sha256-Lq27mCRowRpDOj4pHwEybyukPwZeJWv3ktvXlkCpIxY=" onload=hljs.initHighlightingOnLoad()></script><link rel=icon href=https://zero.shotlearni.ng/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://zero.shotlearni.ng/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://zero.shotlearni.ng/favicon-32x32.png><link rel=apple-touch-icon href=https://zero.shotlearni.ng/apple-touch-icon.png><link rel=mask-icon href=https://zero.shotlearni.ng/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://zero.shotlearni.ng/about/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:title" content><meta property="og:description" content="<!DOCTYPE html>
 
-                <div class="section-title">Patent</div>
-                <div class="item-list" id="patent-list"></div>
 
-                <div class="section-title">AI</div>
-                <div class="item-list" id="ai-list"></div>
+    
+    
+    @DoubleMnSingleH
+    
+    
 
-                <div class="section-title">AISecurity</div>
-                <div class="item-list" id="ai-security-list"></div>
 
-                <div class="section-title">Security</div>
-                <div class="item-list" id="security-list"></div>
-            </section>
-        </main>
-    </div>
-    <script>
-        const text = "DoubleMnSingleH";
-        const typedTextSpan = document.querySelector("#typed-text");
-        let i = 0;
-
-        function type() {
-            if (i < text.length) {
-                typedTextSpan.textContent += text.charAt(i);
-                i++;
-                setTimeout(type, 50);  
-            }
-        }
-
-        function revealSections() {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach((section, index) => {
-                setTimeout(() => {
-                    section.classList.add('visible');
-                }, index * 100); 
-            });
-        }
-
-        function createItems(containerId, items) {
-        const container = document.getElementById(containerId);
-        items.forEach(({ name, url }) => {
-            const itemElement = document.createElement('div');
-            itemElement.className = 'item';
+    
+        
+            > 
+        
+        
             
-            const link = document.createElement('a');
-            link.href = url;
-            link.textContent = name;
-            // link.target = '_blank'; 
+                $ whoami
+                
+                    Blog: zero.shotlearni.ng
+                    Email: devmhyun@gmail.com
+                    Github: github.com/dev-mhyun
+                "><meta property="og:type" content="article"><meta property="og:url" content="https://zero.shotlearni.ng/about/"><meta property="article:section" content><meta name=twitter:card content="summary"><meta name=twitter:title content><meta name=twitter:description content="<!DOCTYPE html>
 
-            itemElement.appendChild(link);
-            container.appendChild(itemElement);
-        });
-    }
 
-        document.addEventListener("DOMContentLoaded", function() {
-            document.body.classList.add('loaded');
-            setTimeout(type, 500);
-            setTimeout(revealSections, 1500);
+    
+    
+    @DoubleMnSingleH
+    
+    
 
-            createItems('paper-list', [
-                {name : "악성 파일 탐지 모델 취약성 분석 및 방어 프레임워크", url:""},
-            ]);
-            createItems('patent-list', [
-                {},
-            ]);
-            createItems('ai-list', [
-                {},
-            ]);
-            createItems('ai-security-list', [
-                {},
-            ]);
-            createItems('security-list', [
-                {},
-            ]);
-        });
-    </script>
-</body>
-</html>
+
+    
+        
+            > 
+        
+        
+            
+                $ whoami
+                
+                    Blog: zero.shotlearni.ng
+                    Email: devmhyun@gmail.com
+                    Github: github.com/dev-mhyun
+                "><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"","item":"https://zero.shotlearni.ng/about/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"","name":"","description":"\u003c!DOCTYPE html\u003e @DoubleMnSingleH \u003e $ whoami Blog: zero.shotlearni.ng\nEmail: devmhyun@gmail.com\nGithub: github.com/dev-mhyun\n","keywords":[],"articleBody":"\u003c!DOCTYPE html\u003e @DoubleMnSingleH \u003e $ whoami Blog: zero.shotlearni.ng\nEmail: devmhyun@gmail.com\nGithub: github.com/dev-mhyun\n$ cat speaker.log 2024.06.21: CISC-S'24, 악성 파일 탐지 모델 취약성 분석 및 방어 프레임워크 우수 논문 발표\n2024.11.12: Soongil Univ. 전산학과 55주년 부스 , 악성 파일 탐지 모델 취약성 분석 및 방어 프레임워크 $ ls work-experience/ • CSEC Undergraduate Researcher • Stealien Technical Adviser • 데이원 컴퍼니 Instructor $ ls Activities/ Paper Patent AI AISecurity Security ","wordCount":"68","inLanguage":"en","datePublished":"0001-01-01T00:00:00Z","dateModified":"0001-01-01T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://zero.shotlearni.ng/about/"},"publisher":{"@type":"Organization","name":"DoubleMnSingleH","logo":{"@type":"ImageObject","url":"https://zero.shotlearni.ng/favicon.ico"}}}</script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-P2FSMQE5SL"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-P2FSMQE5SL")</script><header class="header sticky-header"><nav class=nav><div class=logo><a href=https://zero.shotlearni.ng/ accesskey=h title="DoubleMnSingleH (Alt + H)">DoubleMnSingleH</a>
+<span class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button><ul class=lang-switch><li>|</li></ul></span></div><ul id=menu><li><a href=https://zero.shotlearni.ng/about title=About><span class=active>About</span></a></li><li><a href=https://zero.shotlearni.ng/ title=Home><span>Home</span></a></li><li><a href=https://zero.shotlearni.ng/blog title=Blog><span>Blog</span></a></li><li><a href=https://zero.shotlearni.ng/search title="Search (Alt + /)" accesskey=/><span>Search</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://zero.shotlearni.ng/>Home</a></div><h1 class=post-title></h1><div class=post-meta></div></header><div class=post-content><!doctype html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>@DoubleMnSingleH</title>
+<link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap"><style>body{background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 50%,#2a2a2a 100%);color:#fff;font-family:ubuntu mono,monospace;line-height:1.6;margin:0;padding:0;opacity:0;transition:opacity .5s ease-in-out;font-size:14px;min-height:100vh;display:flex;justify-content:center;align-items:flex-start}body.loaded{opacity:1}.container{max-width:800px;width:100%;padding:20px;padding-top:5vh}h1,h2{color:#fff;padding-bottom:5px;margin-bottom:5px;font-size:1.5em;text-shadow:0 0 5px rgba(255,255,255,.2)}.section{margin-bottom:20px;opacity:0;transform:translateY(20px);transition:opacity .3s ease-out,transform .3s ease-out}.section.visible{opacity:1;transform:translateY(0)}.section p{margin-top:5px}.header{margin-bottom:20px}.header h1{margin:0;display:inline-block;position:relative;font-size:1.8em;padding-right:15px}.header h1::after{content:'|';position:absolute;right:5px;animation:blink .5s infinite}@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}.item-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:10px}.item{background-color:rgba(255,255,255,3%);padding:5px 10px;border-radius:5px;font-size:.9em;text-align:center}.section-title{font-size:1.2em;font-weight:700;margin-top:25px;margin-bottom:10px;padding-bottom:5px;border-bottom:2px solid rgba(255,255,255,.1);color:#fff}a{color:#fff;text-decoration:none;transition:color .3s ease,text-shadow .3s ease;position:relative}a:hover{color:#fff;text-shadow:0 0 8px rgba(255,255,255,.5)}a::after{content:'';position:absolute;width:100%;height:1px;bottom:-2px;left:0;background-color:#fff;visibility:hidden;transform:scaleX(0);transition:all .3s ease-in-out}a:hover::after{visibility:visible;transform:scaleX(1)}.hall-of-fame a{display:inline-block;margin-bottom:5px;padding:3px 8px;background-color:rgba(255,255,255,3%);border-radius:3px;transition:background-color .3s ease,transform .3s ease;word-break:break-word}.hall-of-fame a:hover{background-color:rgba(255,255,255,.1);transform:translateX(5px)}.hall-of-fame a strong{font-weight:700;color:#fff}@media(max-width:767px){body{font-size:14px}.container{padding:10px;padding-top:3vh}h1,h2{font-size:1.4em}.header h1{font-size:1.6em}.item-list{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}.section-title{font-size:1.2em}.hall-of-fame a{font-size:.9em;padding:2px 6px}}@media(min-width:768px){body{font-size:16px}h1,h2{font-size:1.8em}.header h1{font-size:2em}.item-list{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}.section-title{font-size:1.4em}}</style></head><body><div class=container><header class=header><h1>> <span id=typed-text></span></h1></header><main><section class=section><h1>$ whoami</h1><p><strong>Blog:</strong> <a href=https://zero.shotlearni.ng/home/>zero.shotlearni.ng</a><br><strong>Email:</strong> <a href=mailto:devmhyun@gmail.com>devmhyun@gmail.com</a><br><strong>Github:</strong> <a href=https://github.com/dev-mhyun>github.com/dev-mhyun</a><br></p></section><section class=section><h1>$ cat speaker.log</h1><p><strong>2024.06.21:</strong> <a href><strong>CISC-S'24</strong>, 악성 파일 탐지 모델 취약성 분석 및 방어 프레임워크 우수 논문 발표</a><br><strong>2024.11.12:</strong> <a href><strong>Soongil Univ. 전산학과 55주년 부스 </strong>, 악성 파일 탐지 모델 취약성 분석 및 방어 프레임워크</a></p></section><section class=section><h1>$ ls work-experience/</h1><p>• <a href><strong>CSEC</strong> Undergraduate Researcher</a><br>• <a href><strong>Stealien</strong> Technical Adviser</a><br>• <a href><strong>데이원 컴퍼니</strong> Instructor</a><br></p></section><section class=section><h1>$ ls Activities/</h1><div class=section-title>Paper</div><div class=item-list id=paper-list></div><div class=section-title>Patent</div><div class=item-list id=patent-list></div><div class=section-title>AI</div><div class=item-list id=ai-list></div><div class=section-title>AISecurity</div><div class=item-list id=ai-security-list></div><div class=section-title>Security</div><div class=item-list id=security-list></div></section></main></div><script>const text="DoubleMnSingleH",typedTextSpan=document.querySelector("#typed-text");let i=0;function type(){i<text.length&&(typedTextSpan.textContent+=text.charAt(i),i++,setTimeout(type,50))}function revealSections(){const e=document.querySelectorAll(".section");e.forEach((e,t)=>{setTimeout(()=>{e.classList.add("visible")},t*100)})}function createItems(e,t){const n=document.getElementById(e);t.forEach(({name:e,url:t})=>{const s=document.createElement("div");s.className="item";const o=document.createElement("a");o.href=t,o.textContent=e,s.appendChild(o),n.appendChild(s)})}document.addEventListener("DOMContentLoaded",function(){document.body.classList.add("loaded"),setTimeout(type,500),setTimeout(revealSections,1500),createItems("paper-list",[{name:"악성 파일 탐지 모델 취약성 분석 및 방어 프레임워크",url:""}]),createItems("patent-list",[{}]),createItems("ai-list",[{}]),createItems("ai-security-list",[{}]),createItems("security-list",[{}])})</script></body></html></div><footer class=post-footer><ul class=post-tags></ul></footer></article></main><footer class=footer><span>&copy; 2025 <a href=https://zero.shotlearni.ng/>DoubleMnSingleH</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
