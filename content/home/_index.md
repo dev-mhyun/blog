@@ -1,4 +1,4 @@
 ---
 title: "Home"
-layout: "list"
+layout: "index"
 ---
