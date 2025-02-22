@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>DoubleMnSingleH</title>
-    <link>https://zero.shotlearni.ng/</link>
-    <description>Recent content on DoubleMnSingleH</description>
+    <title>Workexperiences on DoubleMnSingleH</title>
+    <link>https://zero.shotlearni.ng/workexperience/</link>
+    <description>Recent content in Workexperiences on DoubleMnSingleH</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://zero.shotlearni.ng/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://zero.shotlearni.ng/workexperience/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
       <link>https://zero.shotlearni.ng/workexperience/undergraduateresearcher/</link>
@@ -17,7 +17,6 @@
 LLM Redteaming LLM 을 타겟으로 Adversarial Prompt 및 Jail Break 등 실제 LLM 서비스를 침투하기위한 red teaming을 연구중입니다.
 Ability Data Preprocess NLP Computer Vision Document Handling </description>
     </item>
-    
     
   </channel>
 </rss>
