@@ -1,8 +1,8 @@
 # CSEC. Soongsil Univ.
 
-### > Undergraduate Researcher
+### Undergraduate Researcher
 
-### > 2023.07 – present
+### 2023.07 – present
 
 ---
 
