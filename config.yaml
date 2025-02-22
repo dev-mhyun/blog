@@ -11,7 +11,7 @@ menu:
       weight: 10
     - identifier: home
       name: Home
-      url: /
+      url: /home/
       weight: 20
     - identifier: blog
       name: Blog
