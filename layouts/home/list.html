@@ -48,7 +48,7 @@
 {{- partial "home_info.html" . }}
 {{- end }}
 
-{{- if .IsHome }}
+
 <article class="first-entry home-info">
   <header class="entry-header">
     <h1>
@@ -66,7 +66,7 @@
     </ul>
   </div>
 </article>
-{{- end }}
+
 
 {{- $term := .Data.Term }}
 {{- range $index, $page := $paginator.Pages }}
