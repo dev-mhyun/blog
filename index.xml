@@ -8,11 +8,31 @@
     <language>en-us</language><atom:link href="https://zero.shotlearni.ng/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
+      <link>https://zero.shotlearni.ng/workexperience/dayoneinstructor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zero.shotlearni.ng/workexperience/dayoneinstructor/</guid>
+      <description>데이원컴퍼니 Instructor 2024.12.09 – 2024.12.30 Job Description Skill-up 데이터분석 MASTER CLASS - Python Skill-up 데이터분석 MASTER CLASS - Python 과정의 문제를 출제하였습니다. 1~25차시에 해당하는 내용의 문제를 출제하였으며, 해당 차시 내의 실습, 연습, 평가 문제를 출제하였습니다.
+Ability Python beginner Python Basic Matplotlib Seaborn Pandas Crawling EDA RFM Analysis DAU Map Visualization </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://zero.shotlearni.ng/workexperience/stealienta/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zero.shotlearni.ng/workexperience/stealienta/</guid>
+      <description>Stealien Technical Adviser 2023.09.18 – 2023.10.20 Job Description CTF 문제 출제 CTF 대회의 문제 출제 중 일부분을 맡았습니다. Crypto 문제를 제작하였습니다.
+Ability cryptography </description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://zero.shotlearni.ng/workexperience/undergraduateresearcher/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://zero.shotlearni.ng/workexperience/undergraduateresearcher/</guid>
-      <description>CSEC. Soongsil Univ. &amp;gt; Undergraduate Researcher &amp;gt; 2023.07 – present Job Description 국방 AI 보안 사업 진행 타겟 모델을 설정하여 white box 환경과 black box 환경에서의 모델의 취약성을 분석하고 공격했습니다. 또 방어 기법을 연구하여, 모델 취약성 분석 및 방어 프레임워크를 제작했습니다.
+      <description>CSEC. Soongsil Univ. Undergraduate Researcher 2023.07 – present Job Description 국방 AI 보안 사업 진행 타겟 모델을 설정하여 white box 환경과 black box 환경에서의 모델의 취약성을 분석하고 공격했습니다. 또 방어 기법을 연구하여, 모델 취약성 분석 및 방어 프레임워크를 제작했습니다.
 해당 사업을 기반으로 학회지(우수논문상), 논문, 국내특허, 해외특허(PCT심사)의 결과물을 산출하였습니다.
 LLM Redteaming LLM 을 타겟으로 Adversarial Prompt 및 Jail Break 등 실제 LLM 서비스를 침투하기위한 red teaming을 연구중입니다.
 Ability Data Preprocess NLP Computer Vision Document Handling </description>
