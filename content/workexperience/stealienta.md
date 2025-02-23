@@ -1,6 +1,6 @@
 # Stealien
 
-### Technical Adviser
+### CTF 문제 출제 외주
 
 ### 2023.09.18 – 2023.10.20
 
