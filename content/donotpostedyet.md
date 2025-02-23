@@ -16,4 +16,4 @@
 
 ## Contact
 
-[[>] About Page](http://zero.shotlearni.ng)
+[[>] About Page](http://zero.shotlearni.ng/about)
