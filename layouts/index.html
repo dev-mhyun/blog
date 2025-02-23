@@ -1,87 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DoubleMnSingleH</title>
+  <title>Hi, I'm KiMH</title>
   <style>
     body {
       background: #111;
       color: #FFFFFF;
       font-family: Consolas, Courier, monospace;
       font-size: 80px;
-      text-shadow: 0 0 15px #FFFFFF;
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100vh;
-    }
-
-    .glow {
-      color: #FFFFFF;
-      text-shadow: 0px 0px 10px #FFFFFF;
-    }
-
-    span {
-      display: inline-block;
-      padding: 0 10px;
-      letter-spacing: -20px;
+      margin: 0;
     }
   </style>
 </head>
 <body>
-  <div id="doublemnsingleh">DoubleMnSingleH</div>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <div>Hi, I'm KiMH</div>
   <script>
-    $(document).ready(function() {
-      var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".split("");
-      var el = $("#doublemnsingleh");
-      var word = "DoubleMnSingleH";
-      var newWord = "KiMH";
-      var letter_count = 0;
-      var finished = false;
-      var totalTime = 5000;  // 전체 애니메이션 시간 (10초)
-      var letterTime = totalTime / word.length;
-
-      el.html("");
-      for (var i = 0; i < word.length; i++) {
-        el.append("<span>" + word.charAt(i) + "</span>");
-      }
-
-      setTimeout(write, 10);
-      var incrementer = setTimeout(inc, letterTime);
-
-      function write() {
-        for (var i = letter_count; i < word.length; i++) {
-          var c = Math.floor(Math.random() * alphabet.length);
-          $("span")[i].innerHTML = alphabet[c];
-        }
-        if (!finished) {
-          setTimeout(write, 10);
-        }
-      }
-
-      function inc() {
-        $("span")[letter_count].innerHTML = word[letter_count];
-        $("span:eq("+letter_count+")").addClass("glow");
-        letter_count++;
-        if (letter_count >= word.length) {
-          finished = true;
-          setTimeout(changeToKiMH, 10);
-        } else {
-          setTimeout(inc, letterTime);
-        }
-      }
-
-      function changeToKiMH() {
-        el.html(""); 
-        for (var i = 0; i < newWord.length; i++) {
-          el.append("<span class='glow'>" + newWord.charAt(i) + "</span>");
-        }
-        setTimeout(() => {
-          window.location.href = "https://zero.shotlearni.ng/about";
-        }, 20);
-      }
-    });
+    setTimeout(function() {
+      window.location.href = "https://zero.shotlearni.ng/about";
+    }, 1000);
   </script>
 </body>
 </html>
