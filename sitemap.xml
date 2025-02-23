@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://zero.shotlearni.ng/activities/aisecurity/asctrack2025/</loc>
+  </url><url>
+    <loc>https://zero.shotlearni.ng/activities/security/asc/</loc>
+  </url><url>
+    <loc>https://zero.shotlearni.ng/activities/security/ssuctf2025/</loc>
+  </url><url>
+    <loc>https://zero.shotlearni.ng/donotpostedyet/</loc>
+    <priority>0</priority>
+  </url><url>
     <loc>https://zero.shotlearni.ng/workexperience/dayoneinstructor/</loc>
   </url><url>
     <loc>https://zero.shotlearni.ng/workexperience/stealienta/</loc>

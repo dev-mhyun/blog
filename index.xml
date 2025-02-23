@@ -8,6 +8,53 @@
     <language>en-us</language><atom:link href="https://zero.shotlearni.ng/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
+      <link>https://zero.shotlearni.ng/activities/aisecurity/asctrack2025/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zero.shotlearni.ng/activities/aisecurity/asctrack2025/</guid>
+      <description>2025 ASC Track Winter Operator 2025.01.06 - 2025.02.28
+Description 침투 문제에 대한 강의자료와 문제를 구현하고 이를 전국 해킹방어 동아리원들이 학습하고 활동하는 ASC Track을 제작하였습니다.
+LLM Service, AI 보안에 대한 강의 자료를 제작하였으며, LLM 서비스를 구현해 safe tensor 취약점을 기저로한 침투문제를 제작했습니다.
+Skill AI Architecture LLM Service Development(front, back) AI Security LLM Security </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://zero.shotlearni.ng/activities/security/asc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zero.shotlearni.ng/activities/security/asc/</guid>
+      <description>Team. ASC Club President 2024.01. - present Description Soongsil Univ. Hacking&amp;amp;Defense Club
+LINK ASC Notion</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://zero.shotlearni.ng/activities/security/ssuctf2025/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zero.shotlearni.ng/activities/security/ssuctf2025/</guid>
+      <description>2025 SSU CTF Operator 2025.01.25 10:00 - 18:00
+Description 2025년 숭실대학교 해킹방어대회(2025 SSU CTF)를 기획하고, 운영하였습니다. 사업계획서부터, 문제 출제 및 운영까지 대회 총괄을 맡았습니다. 숭실대학교 SW사업단과 Hspace의 후원을 받아 진행하였습니다.
+참가인원은 142팀 (3인 내 구성 1팀) , 대학부와 일반부 구분으로 진행되었습니다.
+pyjail(misc) 과 check the target(aisec, misc) 문제를 출제하였습니다.
+LINK 숭실대학교 해킹방어대회 onoffmix</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://zero.shotlearni.ng/donotpostedyet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zero.shotlearni.ng/donotpostedyet/</guid>
+      <description>Do Not Posted Yet Thx for your Attention. Description 아직 작성되지 않은 페이지 입니다.
+빠른 시일내에 작성될 예정이오니 양해 바랍니다.
+감사합니다.
+Contact [&amp;gt;] About Page</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://zero.shotlearni.ng/workexperience/dayoneinstructor/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
