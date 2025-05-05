@@ -177,6 +177,17 @@
                 font-size: 1.4em;
             }
         }
+        a:not([href]):hover,
+        a:not([href]):hover::after {
+            color: inherit;
+            text-shadow: none;
+            cursor: default;
+            transform: none;
+        }
+
+        a:not([href])::after {
+            display: none;
+        }
     </style>
 </head>
 <body>
