@@ -12,8 +12,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://zero.shotlearni.ng/blog/acsc2025synchronized-silence-editorial-of-operator/</guid>
-      <description>TL; DR Tree Parity Machine(TPM)을 이용해 AES 키를 공개 채널에서 학습 동기화로 생성한 뒤, 암호화된 플래그를 제공하는 문제다. 로그(log.json)를 기반으로 TPM weight를 재현하고, SHA256으로 키를 유도해 enc_flag.txt를 복호화하면 된다. naive한 단일 TPM imitation으로는 풀리지 않으며, population attack, mutation, selective unit flipping을 활용해 풀이 가능하다.
-문제 구조 log.json: TPM 학습 로그. 각 step의 입력 벡터(x: 3x100)와 출력 bit(tau: {-1, +1})가 주어짐. 단, Alice와 Bob이 tau^A = tau^B일 때만 기록됨. enc_flag.txt: AES-ECB로 암호화된 플래그.</description>
+      <description>[ACSC2025]Synchronized Silence Editorial of Operator TL; DR Tree Parity Machine(TPM)을 이용해 AES 키를 공개 채널에서 학습 동기화로 생성한 뒤, 암호화된 플래그를 제공하는 문제다. 로그(log.json)를 기반으로 TPM weight를 재현하고, SHA256으로 키를 유도해 enc_flag.txt를 복호화하면 된다. naive한 단일 TPM imitation으로는 풀리지 않으며, population attack, mutation, selective unit flipping을 활용해 풀이 가능하다.
+문제 구조 log.json: TPM 학습 로그. 각 step의 입력 벡터(x: 3x100)와 출력 bit(tau: {-1, +1})가 주어짐. 단, Alice와 Bob이 tau^A = tau^B일 때만 기록됨.</description>
     </item>
     
   </channel>
