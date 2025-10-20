@@ -1,3 +1,5 @@
+# [ACSC2025]Synchronized Silence Editorial of Operator
+
 ## **TL; DR**
 
 Tree Parity Machine(TPM)을 이용해 AES 키를 공개 채널에서 학습 동기화로 생성한 뒤, 암호화된 플래그를 제공하는 문제다. 로그(log.json)를 기반으로 TPM weight를 재현하고, SHA256으로 키를 유도해 enc_flag.txt를 복호화하면 된다. naive한 단일 TPM imitation으로는 풀리지 않으며,  population attack, mutation, selective unit flipping을 활용해 풀이 가능하다.
