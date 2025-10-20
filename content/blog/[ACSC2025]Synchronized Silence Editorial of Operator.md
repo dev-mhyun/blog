@@ -1,4 +1,9 @@
-# [ACSC2025]Synchronized Silence Editorial of Operator
+---
+title: "[ACSC2025]Synchronized Silence Editorial of Operator"
+description: "Operated By Myeonghyun Kim @kimh"
+dateString: Aug 2025
+draft: false
+---
 
 ## **TL; DR**
 
