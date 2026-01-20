@@ -176,10 +176,50 @@
 Aug 2025</footer>
   <a class="entry-link" aria-label="post link to [ACSC2025]Synchronized Silence Editorial of Operator" href="https://zero.shotlearni.ng/blog/acsc2025synchronized-silence-editorial-of-operator/"></a>
 </article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[CVE-2025-66959]panic DoS via unchecked length in GGUF decoder
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Severity Score : 7.5 / 10
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H
+Summary A remote unauthenticated Denial of Service exists in the GGUF decoder. When creating a model from a crafted GGUF blob, the server panics with panic: runtime error: makeslice: len out of range and terminates.
+Details (root cause) In fs/ggml/gguf.go::readGGUFString, the code reads 8 bytes as a length and immediately allocates a slice of that length:
+func readGGUFString(llm *gguf, r io.Reader) (string, error) { if llm....</p>
+  </div>
+  <footer class="entry-footer">
+
+
+JAN 2026</footer>
+  <a class="entry-link" aria-label="post link to [CVE-2025-66959]panic DoS via unchecked length in GGUF decoder" href="https://zero.shotlearni.ng/blog/cve-2025-66959panic-dos-via-unchecked-length-in-gguf-decoder-copy/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[CVE-2025-66960]GUF v1 string length cause panic in readGGUFV1String
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Severity Score : 7.5 / 10
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H
+Summary A remote unauthenticated Denial-of-Service exists in Ollama’s GGUF decoder.
+When a crafted GGUF file is uploaded and used during model creation, the server panics and terminates.
+Key signature
+panic: bytes.Buffer: truncation out of range stack: readGGUFV1String → readGGUFString → (*gguf).Decode → server.(*Server).Create… This affects the REST path /api/blobs (upload) &#43; /api/create (files map) and brings down the process.
+Details(root cause) In fs/ggml/gguf.go, function readGGUFV1String reads a string length from untrusted GGUF metadata and later ends up calling bytes....</p>
+  </div>
+  <footer class="entry-footer">
+
+
+JAN 2026</footer>
+  <a class="entry-link" aria-label="post link to [CVE-2025-66960]GUF v1 string length cause panic in readGGUFV1String" href="https://zero.shotlearni.ng/blog/cve-2025-66960guf-v1-string-length-cause-panic-in-readggufv1string/"></a>
+</article>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2025 <a href="https://zero.shotlearni.ng/">DoubleMnSingleH</a></span>
+    <span>&copy; 2026 <a href="https://zero.shotlearni.ng/">DoubleMnSingleH</a></span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
