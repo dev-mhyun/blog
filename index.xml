@@ -110,7 +110,7 @@ Ability Data Preprocess NLP Computer Vision Document Handling </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://zero.shotlearni.ng/blog/cve-2025-66959panic-dos-via-unchecked-length-in-gguf-decoder-copy/</guid>
-      <description>Operated By Myeonghyun Kim @kimh</description>
+      <description>Found By Myeonghyun Kim @kimh</description>
     </item>
     
     <item>
@@ -119,7 +119,7 @@ Ability Data Preprocess NLP Computer Vision Document Handling </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://zero.shotlearni.ng/blog/cve-2025-66960guf-v1-string-length-cause-panic-in-readggufv1string/</guid>
-      <description>Operated By Myeonghyun Kim @kimh</description>
+      <description>Found By Myeonghyun Kim @kimh</description>
     </item>
     
     
