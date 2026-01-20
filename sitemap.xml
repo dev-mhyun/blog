@@ -21,6 +21,10 @@
   </url><url>
     <loc>https://zero.shotlearni.ng/blog/acsc2025synchronized-silence-editorial-of-operator/</loc>
   </url><url>
+    <loc>https://zero.shotlearni.ng/blog/cve-2025-66959panic-dos-via-unchecked-length-in-gguf-decoder-copy/</loc>
+  </url><url>
+    <loc>https://zero.shotlearni.ng/blog/cve-2025-66960guf-v1-string-length-cause-panic-in-readggufv1string/</loc>
+  </url><url>
     <loc>https://zero.shotlearni.ng/activities/</loc>
   </url><url>
     <loc>https://zero.shotlearni.ng/blog/</loc>
