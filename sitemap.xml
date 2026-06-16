@@ -2,43 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://zero.shotlearni.ng/activities/aisecurity/asctrack2025/</loc>
-  </url><url>
-    <loc>https://zero.shotlearni.ng/activities/security/asc/</loc>
-  </url><url>
-    <loc>https://zero.shotlearni.ng/activities/security/ssuctf2025/</loc>
-  </url><url>
-    <loc>https://zero.shotlearni.ng/donotpostedyet/</loc>
-    <priority>0</priority>
-  </url><url>
-    <loc>https://zero.shotlearni.ng/workexperience/acsc2025operator/</loc>
-  </url><url>
-    <loc>https://zero.shotlearni.ng/workexperience/dayoneinstructor/</loc>
-  </url><url>
-    <loc>https://zero.shotlearni.ng/workexperience/stealienta/</loc>
-  </url><url>
-    <loc>https://zero.shotlearni.ng/workexperience/undergraduateresearcher/</loc>
-  </url><url>
-    <loc>https://zero.shotlearni.ng/blog/acsc2025synchronized-silence-editorial-of-operator/</loc>
+    <loc>https://zero.shotlearni.ng/</loc>
   </url><url>
     <loc>https://zero.shotlearni.ng/blog/cve-2025-66959panic-dos-via-unchecked-length-in-gguf-decoder-copy/</loc>
   </url><url>
     <loc>https://zero.shotlearni.ng/blog/cve-2025-66960guf-v1-string-length-cause-panic-in-readggufv1string/</loc>
   </url><url>
-    <loc>https://zero.shotlearni.ng/activities/</loc>
-  </url><url>
     <loc>https://zero.shotlearni.ng/blog/</loc>
   </url><url>
-    <loc>https://zero.shotlearni.ng/categories/</loc>
+    <loc>https://zero.shotlearni.ng/cv/</loc>
   </url><url>
-    <loc>https://zero.shotlearni.ng/</loc>
-  </url><url>
-    <loc>https://zero.shotlearni.ng/home/</loc>
-  </url><url>
-    <loc>https://zero.shotlearni.ng/search/</loc>
+    <loc>https://zero.shotlearni.ng/tags/cve/</loc>
   </url><url>
     <loc>https://zero.shotlearni.ng/tags/</loc>
-  </url><url>
-    <loc>https://zero.shotlearni.ng/workexperience/</loc>
   </url>
 </urlset>

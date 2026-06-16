@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>kimh</title>
-    <link>https://zero.shotlearni.ng/</link>
-    <description>Recent content on kimh</description>
+    <title>CVE on kimh</title>
+    <link>https://zero.shotlearni.ng/tags/cve/</link>
+    <description>Recent content in CVE on kimh</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://zero.shotlearni.ng/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://zero.shotlearni.ng/tags/cve/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[CVE-2025-66959]panic DoS via unchecked length in GGUF decoder</title>
       <link>https://zero.shotlearni.ng/blog/cve-2025-66959panic-dos-via-unchecked-length-in-gguf-decoder-copy/</link>
@@ -22,15 +22,6 @@
       
       <guid>https://zero.shotlearni.ng/blog/cve-2025-66960guf-v1-string-length-cause-panic-in-readggufv1string/</guid>
       <description>Found By Myeonghyun Kim @kimh</description>
-    </item>
-    
-    <item>
-      <title>Curriculum Vitae</title>
-      <link>https://zero.shotlearni.ng/cv/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://zero.shotlearni.ng/cv/</guid>
-      <description></description>
     </item>
     
   </channel>
