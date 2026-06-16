@@ -1,0 +1,8 @@
+.superpowers/
+/public/
+/resources/
+.hugo_build.lock
+/docs/
+
+/content/blog/*Synchronized Silence Editorial*
+/content/donotpostedyet.md

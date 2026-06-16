@@ -1,38 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Hi, I'm KiMH</title>
-  <style>
-    body {
-      background: #111;
-      color: #FFFFFF;
-      font-family: Consolas, Courier, monospace;
-      font-size: 80px;
-      text-shadow: 0 0 15px #FFFFFF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
+{{- define "main" }}
+{{- $name := .Params.name | default site.Title }}
+<div class="home">
 
-    .glow {
-      color: #FFFFFF;
-      text-shadow: 0px 0px 10px #FFFFFF;
-    }
+  <section class="hero js-reveal">
+    <div class="hero-text">
+      <h1 class="hero-name">{{ $name }}</h1>
+      {{- with .Params.role }}<p class="hero-role">{{ . | markdownify }}</p>{{- end }}
+      {{- with .Params.bio }}<div class="hero-bio">{{ . | markdownify }}</div>{{- end }}
+      <p class="hero-links">
+        {{- with .Params.email }}<a href="mailto:{{ . }}">Email</a>{{- end }}
+        {{- with .Params.github }}<a href="{{ . }}" rel="me">GitHub</a>{{- end }}
+        {{- with .Params.cv }}<a href="{{ . }}">CV (PDF)</a>{{- end }}
+      </p>
+    </div>
+    <div class="hero-photo">
+      {{- with .Params.photo }}
+      <img src="{{ . | relURL }}" alt="{{ $name }}" loading="eager">
+      {{- else }}
+      <span class="hero-photo-ph" aria-hidden="true"></span>
+      {{- end }}
+    </div>
+  </section>
 
-    span {
-      display: inline-block;
-      padding: 0 10px;
-      letter-spacing: -20px;
-    }
-  </style>
-</head>
-<body>
-  <div>Hi, I'm KiMH</div>
-  <script>
-    setTimeout(function() {
-      window.location.href = "https://zero.shotlearni.ng/home";
-    }, 1000);
-  </script>
-</body>
-</html>
+  {{- with .Content }}
+  <div class="home-content">
+    {{ . }}
+  </div>
+  {{- end }}
+
+</div>
+{{- end }}

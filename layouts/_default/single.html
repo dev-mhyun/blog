@@ -1,0 +1,36 @@
+{{- define "main" }}
+<article class="post-single">
+  <header class="post-header">
+    <a class="post-back" href="{{ "blog/" | absLangURL }}">&larr; Blog</a>
+    <h1 class="post-title">
+      {{ .Title }}
+      {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+    </h1>
+    {{- if not (.Param "hideMeta") }}
+    <div class="post-meta">
+      {{- partial "post_meta.html" . -}}
+      {{- with .Description }}&nbsp;·&nbsp;{{ . }}{{- end }}
+    </div>
+    {{- end }}
+  </header>
+
+  {{- if .Content }}
+  <div class="post-content">
+    {{- if not (.Param "disableAnchoredHeadings") }}
+    {{- partial "anchored_headings.html" .Content -}}
+    {{- else }}{{ .Content }}{{ end }}
+  </div>
+  {{- end }}
+
+  <footer class="post-footer">
+    {{- with .GetTerms "tags" }}
+    <ul class="post-tags">
+      {{- range . }}
+      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+    <a class="post-back" href="{{ "blog/" | absLangURL }}">&larr; Back to Blog</a>
+  </footer>
+</article>
+{{- end }}

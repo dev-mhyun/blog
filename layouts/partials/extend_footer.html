@@ -1,0 +1,33 @@
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var content = document.querySelector('.home-content');
+  if (content) {
+    var nodes = Array.prototype.slice.call(content.childNodes);
+    var sections = [], current = null;
+    nodes.forEach(function (n) {
+      var isH2 = n.nodeType === 1 && n.tagName === 'H2';
+      if (isH2 || !current) {
+        current = document.createElement('section');
+        current.className = 'home-section js-reveal';
+        sections.push(current);
+      }
+      current.appendChild(n);
+    });
+    sections.forEach(function (s) { content.appendChild(s); });
+  }
+
+  var targets = document.querySelectorAll('.js-reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    targets.forEach(function (t) { t.classList.add('is-visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>

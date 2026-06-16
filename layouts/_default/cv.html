@@ -1,0 +1,33 @@
+{{- define "main" }}
+{{- $pdf := .Params.pdf | default "cv.pdf" }}
+{{- $exists := os.FileExists (printf "static/%s" $pdf) }}
+{{- $url := $pdf | relURL }}
+<div class="cv-page">
+
+  <div class="cv-head">
+    <div>
+      <h1 class="cv-title">{{ .Title }}</h1>
+      {{- with .Params.updated }}<div class="cv-sub">Last updated {{ . }}{{ if $exists }} · PDF{{ end }}</div>{{- end }}
+    </div>
+    {{- if $exists }}<a class="cv-dl" href="{{ $url }}" download>Download PDF &darr;</a>{{- end }}
+  </div>
+
+  {{- with .Content }}<div class="cv-intro">{{ . }}</div>{{- end }}
+
+  {{- if $exists }}
+  <div class="cv-viewer">
+    <iframe class="cv-frame" src="{{ $url }}#view=FitH" title="{{ .Title }}" loading="lazy"></iframe>
+  </div>
+  <div class="cv-mobile">
+    <a class="cv-dl" href="{{ $url }}">Open PDF</a>
+    <a class="cv-dl ghost" href="{{ $url }}" download>Download</a>
+  </div>
+  {{- else }}
+  <div class="cv-placeholder">
+    <p class="cv-ph-title">CV is being prepared</p>
+    <p class="cv-ph-sub">The PDF will appear here once it&rsquo;s added (<code>static/{{ $pdf }}</code>).</p>
+  </div>
+  {{- end }}
+
+</div>
+{{- end }}

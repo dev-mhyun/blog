@@ -1,0 +1,32 @@
+{{- define "main" }}
+{{- $kind := .Kind }}
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+  {{- with .Content }}<div class="post-description">{{ . }}</div>{{- end }}
+</header>
+
+{{- $paginator := .Paginate .Pages }}
+{{- range $paginator.Pages }}
+<article class="post-entry">
+  <div class="entry-header">
+    {{- if ne $kind "term" }}
+    {{- with .GetTerms "tags" }}
+    <span class="entry-tags">
+      {{- range . }}<a class="entry-tag" href="{{ .Permalink }}">{{ .LinkTitle }}</a>{{ end }}
+    </span>
+    {{- end }}
+    {{- end }}
+    <h2 class="entry-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+  </div>
+</article>
+{{- end }}
+
+{{- if gt $paginator.TotalPages 1 }}
+<footer class="page-footer">
+  <nav class="pagination">
+    {{- if $paginator.HasPrev }}<a class="prev" href="{{ $paginator.Prev.URL | absURL }}">&laquo; Previous</a>{{ end }}
+    {{- if $paginator.HasNext }}<a class="next" href="{{ $paginator.Next.URL | absURL }}">Next &raquo;</a>{{ end }}
+  </nav>
+</footer>
+{{- end }}
+{{- end }}
