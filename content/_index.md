@@ -47,14 +47,18 @@ Creating a model from a crafted GGUF blob makes `readGGUFString` allocate a slic
 
 ## Honours & Awards
 
-{{< award title="Best Paper Award" category="Paper" catcolor="#2f7d6b" place="🏆" tier="gold" org="CISC-S'24" date="Jun 2024" >}}
-Awarded for "악성 파일 탐지 모델 취약성 분석 및 방어 프레임워크".
+{{< award title="Hspace Hall of Fame" category="Bug bounty" catcolor="#d4af37" place="🏆" tier="gold" org="Hpsace" date="2026" link="https://hspace.io/hall-of-fame" >}}
+Hspace Hall of Fame 2026 1st.
+{{< /award >}}
+
+{{< award title="2025 자랑스런 소프트웨어인상" category="University" catcolor="#00567d" place="🏆" tier="gold" org="Soongsil Univ. Software" date="Sep 2025" >}}
+Awards for outstanding undergraduate students in 2025.
 {{< /award >}}
 
 {{< award title="Best Paper Award" category="Paper" catcolor="#2f7d6b" place="🏆" tier="gold" org="ASK 2025" date="May 2025" >}}
 Awarded for "얼굴형 분석 기반 헤어스타일링 추천 서비스".
 {{< /award >}}
 
-{{< award title="2025 자랑스런 소프트웨어인상" category="University" catcolor="#00567d" place="🏆" tier="gold" org="Soongsil Univ. Software" date="Sep 2025" >}}
-Awards for outstanding undergraduate students in 2025.
+{{< award title="Best Paper Award" category="Paper" catcolor="#2f7d6b" place="🏆" tier="gold" org="CISC-S'24" date="Jun 2024" >}}
+Awarded for "악성 파일 탐지 모델 취약성 분석 및 방어 프레임워크".
 {{< /award >}}
