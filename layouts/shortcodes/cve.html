@@ -1,0 +1,31 @@
+{{- $id := .Get "id" -}}
+{{- $tech := .Get "tech" -}}
+{{- $icon := .Get "icon" -}}
+{{- $type := .Get "type" -}}
+{{- $typecolor := .Get "typecolor" -}}
+{{- $cvss := .Get "cvss" | default "v3" -}}
+{{- $score := .Get "score" -}}
+{{- $level := .Get "level" -}}
+{{- $title := .Get "title" -}}
+{{- $link := .Get "link" -}}
+<details class="cve" data-sev="{{ lower ($level | default "") }}">
+  <summary class="cve-summary">
+    <div class="cve-main">
+      {{- with $icon }}<img class="cve-icon" src="{{ . }}" alt="{{ $tech }}" loading="lazy">{{- end }}
+      {{- with $tech }}<span class="cve-tech">{{ . }}</span>{{- end }}
+      <span class="cve-id">{{ $id }}</span>
+      {{- with $type }}<span class="cve-type"{{ with $typecolor }} style="color: {{ . }}; border-color: {{ . }};"{{ end }}>{{ . }}</span>{{- end }}
+      {{- if $score }}<span class="cve-sev">{{ $cvss }}: {{ $score }}{{ with $level }} {{ . }}{{ end }}</span>{{- end }}
+      <svg class="cve-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    {{- with $title }}<div class="cve-title">{{ . | markdownify }}</div>{{- end }}
+  </summary>
+  <div class="cve-body">
+    {{- with trim .Inner " \n\t" }}<div class="cve-desc">{{ . | markdownify }}</div>{{- end }}
+    <div class="cve-links">
+      {{- with $link }}<a class="cve-detaillink" href="{{ . }}">CVE Details &rarr;</a>{{- end }}
+      {{- with .Get "nvd" }}<a class="cve-detaillink" href="{{ . }}" target="_blank" rel="noopener">NVD &rarr;</a>{{- end }}
+      {{- with .Get "github" }}<a class="cve-detaillink" href="{{ . }}" target="_blank" rel="noopener">GitHub &rarr;</a>{{- end }}
+    </div>
+  </div>
+</details>

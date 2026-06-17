@@ -3,6 +3,13 @@
 <div class="home">
 
   <section class="hero js-reveal">
+    <div class="hero-photo">
+      {{- with .Params.photo }}
+      <img src="{{ . | relURL }}" alt="{{ $name }}" loading="eager">
+      {{- else }}
+      <span class="hero-photo-ph" aria-hidden="true"></span>
+      {{- end }}
+    </div>
     <div class="hero-text">
       <h1 class="hero-name">{{ $name }}</h1>
       {{- with .Params.role }}<p class="hero-role">{{ . | markdownify }}</p>{{- end }}
@@ -10,15 +17,10 @@
       <p class="hero-links">
         {{- with .Params.email }}<a href="mailto:{{ . }}">Email</a>{{- end }}
         {{- with .Params.github }}<a href="{{ . }}" rel="me">GitHub</a>{{- end }}
+        {{- with .Params.x }}<a href="{{ . }}" rel="me">X</a>{{- end }}
+        {{- with .Params.blog }}<a href="{{ . }}">Blog</a>{{- end }}
         {{- with .Params.cv }}<a href="{{ . }}">CV (PDF)</a>{{- end }}
       </p>
-    </div>
-    <div class="hero-photo">
-      {{- with .Params.photo }}
-      <img src="{{ . | relURL }}" alt="{{ $name }}" loading="eager">
-      {{- else }}
-      <span class="hero-photo-ph" aria-hidden="true"></span>
-      {{- end }}
     </div>
   </section>
 

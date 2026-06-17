@@ -1,4 +1,9 @@
+{{- $date := .Get "date" | default (.Get "year") -}}
 <div class="cv-row">
-  <div class="cv-year">{{ .Get "year" }}</div>
-  <div class="cv-item">{{ .Inner | markdownify }}</div>
+  <div class="cv-date">{{ $date }}</div>
+  <div class="cv-item">
+    {{- with .Get "title" }}<div class="cv-role">{{ . | markdownify }}</div>{{- end }}
+    {{- with .Get "org" }}<div class="cv-org">{{ . | markdownify }}</div>{{- end }}
+    {{- with trim .Inner " \n\t" }}<div class="cv-desc">{{ . | markdownify }}</div>{{- end }}
+  </div>
 </div>

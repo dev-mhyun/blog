@@ -1,4 +1,5 @@
 .superpowers/
+.playwright-mcp/
 /public/
 /resources/
 .hugo_build.lock

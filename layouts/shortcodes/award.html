@@ -1,0 +1,29 @@
+{{- $icon := .Get "icon" -}}
+{{- $title := .Get "title" -}}
+{{- $cat := .Get "category" -}}
+{{- $catcolor := .Get "catcolor" -}}
+{{- $place := .Get "place" -}}
+{{- $tier := .Get "tier" | default "gold" -}}
+{{- $org := .Get "org" -}}
+{{- $date := .Get "date" -}}
+{{- $link := .Get "link" -}}
+{{- $body := trim .Inner " \n\t" -}}
+{{- $hasBody := or $body $link -}}
+<details class="award{{ if not $hasBody }} no-toggle{{ end }}" data-tier="{{ lower $tier }}">
+  <summary class="award-summary">
+    <div class="award-main">
+      {{- with $icon }}<img class="award-icon" src="{{ . }}" alt="{{ $title }}" loading="lazy">{{- end }}
+      <span class="award-title">{{ $title | markdownify }}</span>
+      {{- with $cat }}<span class="award-cat"{{ with $catcolor }} style="color: {{ . }}; border-color: {{ . }};"{{ end }}>{{ . }}</span>{{- end }}
+      {{- with $place }}<span class="award-place">{{ . }}</span>{{- end }}
+      {{- if $hasBody }}<svg class="award-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>{{- end }}
+    </div>
+    {{- if or $org $date }}<div class="award-meta">{{ with $org }}{{ . | markdownify }}{{ end }}{{ if and $org $date }} &middot; {{ end }}{{ $date }}</div>{{- end }}
+  </summary>
+  {{- if $hasBody }}
+  <div class="award-body">
+    {{- with $body }}<div class="award-desc">{{ . | markdownify }}</div>{{- end }}
+    {{- with $link }}<a class="award-link" href="{{ . }}" target="_blank" rel="noopener">Details &rarr;</a>{{- end }}
+  </div>
+  {{- end }}
+</details>
