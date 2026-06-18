@@ -37,11 +37,11 @@ cv: "/cv/"
 {{< cve id="CVE-2026-5241" tech="Huggingface" icon="https://cdn.simpleicons.org/huggingface/transformers" type="Remote Code Execution" cvss="v3.1" score="9.6" level="Critical" title="Arbitrary code execution via nested trust_remote_code bypass" nvd="https://nvd.nist.gov/vuln/detail/CVE-2026-5241">}}
 {{< /cve >}}
 
-{{< cve id="CVE-2025-66960" tech="Ollama" icon="https://cdn.simpleicons.org/ollama" type="Denial of Service" cvss="v3" score="7.5" level="High" title="GGUF v1 string length panics readGGUFV1String" link="/blog/cve-2025-66960guf-v1-string-length-cause-panic-in-readggufv1string/" github="https://github.com/ollama/ollama" >}}
+{{< cve id="CVE-2025-66960" tech="Ollama" icon="https://cdn.simpleicons.org/ollama" type="Denial of Service" cvss="v3" score="7.5" level="High" title="GGUF v1 string length panics readGGUFV1String" link="/blog/cve-2025-66960guf-v1-string-length-cause-panic-in-readggufv1string/" nvd="https://nvd.nist.gov/vuln/detail/CVE-2025-66960" >}}
 A malformed v1 string length is used without bounds validation, panicking `readGGUFV1String` during model creation.
 {{< /cve >}}
 
-{{< cve id="CVE-2025-66959" tech="Ollama" icon="https://cdn.simpleicons.org/ollama" type="Denial of Service" cvss="v3" score="7.5" level="High" title="Unchecked length in the GGUF decoder causes a remote panic / DoS" link="/blog/cve-2025-66959panic-dos-via-unchecked-length-in-gguf-decoder-copy/" github="https://github.com/ollama/ollama" >}}
+{{< cve id="CVE-2025-66959" tech="Ollama" icon="https://cdn.simpleicons.org/ollama" type="Denial of Service" cvss="v3" score="7.5" level="High" title="Unchecked length in the GGUF decoder causes a remote panic / DoS" link="/blog/cve-2025-66959panic-dos-via-unchecked-length-in-gguf-decoder-copy/" nvd="https://nvd.nist.gov/vuln/detail/CVE-2025-66959" >}}
 Creating a model from a crafted GGUF blob makes `readGGUFString` allocate a slice from an unchecked 8-byte length, panicking with `makeslice: len out of range` and crashing the server.
 {{< /cve >}}
 
