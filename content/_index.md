@@ -23,7 +23,7 @@ cv: "/cv/"
 - ML Engineer for an AI model-based service demo optimized for Microsoft laptop NPUs (for Microsoft client showcases)
 {{< /entry >}}
 
-{{< entry date="Jun 2025 - Aug 2025" title="Operator" org="**ACSC2025** (OutSourcing)" >}}
+{{< entry date="Jun 2025 – Aug 2025" title="Operator" org="**ACSC2025** (OutSourcing)" >}}
 - Operated two AI security problems to ASCS2025, the Asian qualifier for the ICC World Hacking Defense Competition.
   - Vulnerabilities in TPM-based encrypted communication methods utilizing Neural Network
   - Reverse engineering a VM implemented as a neural network using an ONNX file format model.
