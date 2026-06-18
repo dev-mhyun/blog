@@ -19,5 +19,14 @@
       <description>Reading the OpenMythos repository as a computational hypothesis for Mythos Preview&amp;#39;s long-horizon capability.</description>
     </item>
     
+    <item>
+      <title>OpenMythos 분석: Mythos Preview의 장기 추론 성능과 OpenMythos의 계산 모델링</title>
+      <link>https://zero.shotlearni.ng/blog/analysis-openmythos-v1-kr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zero.shotlearni.ng/blog/analysis-openmythos-v1-kr/</guid>
+      <description>Mythos Preview의 장기 작업 능력을 OpenMythos 레포의 계산 구조로 해석해 본다.</description>
+    </item>
+    
   </channel>
 </rss>

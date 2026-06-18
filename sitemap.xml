@@ -9,6 +9,16 @@
     <loc>https://zero.shotlearni.ng/blog/cve-2025-66960guf-v1-string-length-cause-panic-in-readggufv1string/</loc>
   </url><url>
     <loc>https://zero.shotlearni.ng/blog/analysis-openmythos-v1/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://zero.shotlearni.ng/blog/analysis-openmythos-v1-kr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://zero.shotlearni.ng/blog/analysis-openmythos-v1/"
+                />
   </url><url>
     <loc>https://zero.shotlearni.ng/blog/</loc>
   </url><url>
@@ -17,6 +27,18 @@
     <loc>https://zero.shotlearni.ng/cv/</loc>
   </url><url>
     <loc>https://zero.shotlearni.ng/tags/cve/</loc>
+  </url><url>
+    <loc>https://zero.shotlearni.ng/blog/analysis-openmythos-v1-kr/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://zero.shotlearni.ng/blog/analysis-openmythos-v1/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://zero.shotlearni.ng/blog/analysis-openmythos-v1-kr/"
+                />
   </url><url>
     <loc>https://zero.shotlearni.ng/tags/post/</loc>
   </url><url>
