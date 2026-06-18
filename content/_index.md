@@ -62,3 +62,9 @@ Awarded for "얼굴형 분석 기반 헤어스타일링 추천 서비스".
 {{< award title="Best Paper Award" category="Paper" catcolor="#2f7d6b" place="🏆" tier="gold" org="CISC-S'24" date="Jun 2024" >}}
 Awarded for "악성 파일 탐지 모델 취약성 분석 및 방어 프레임워크".
 {{< /award >}}
+
+
+## Speaker
+
+{{< entry date="Dec 21, 2025" title="블루오션인줄 알고 뛰어든 인공지능보안에 대하여" org="**HolyShield 2025**" >}}
+{{< /entry >}}
