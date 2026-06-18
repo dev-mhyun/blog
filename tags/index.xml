@@ -15,5 +15,14 @@
       <description></description>
     </item>
     
+    <item>
+      <title>Post</title>
+      <link>https://zero.shotlearni.ng/tags/post/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zero.shotlearni.ng/tags/post/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
