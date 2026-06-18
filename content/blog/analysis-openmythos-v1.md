@@ -4,6 +4,8 @@ description: "Reading the OpenMythos repository as a computational hypothesis fo
 dateString: Apr 2026
 draft: false
 tags: ["post"]
+translationKey: "openmythos-analysis"
+lang: "EN"
 ---
 
 On 2026.04.07, Anthropic announced that its newly released Mythos Preview model had found an absurd number of vulnerabilities in the offensive-security domain. [Mythos Preview](https://red.anthropic.com/2026/mythos-preview/)

@@ -296,6 +296,12 @@ button#theme-toggle { font-size: 20px; color: var(--secondary); }
 .post-header { margin: 18px auto var(--content-gap); }
 .post-title { font-family: var(--serif); font-size: 31px; font-weight: 700; line-height: 1.18; letter-spacing: -.01em; margin: 14px 0 0; }
 .post-meta, .post-meta a { font-family: var(--sans); font-size: 13px; color: var(--muted); }
+.lang-toggle { display: inline-flex; margin: 14px 0 0; border: 1px solid var(--border-strong); border-radius: 8px; overflow: hidden; font-family: var(--sans); font-size: 12.5px; }
+.lang-opt { padding: 4px 13px; color: var(--secondary); text-decoration: none; line-height: 1.7; }
+.lang-opt + .lang-opt { border-inline-start: 1px solid var(--border-strong); }
+.lang-opt.active { background: var(--accent); color: #fff; }
+.lang-opt:not(.active):hover { background: rgba(120,90,40,.05); }
+.dark .lang-opt:not(.active):hover { background: rgba(255,255,255,.04); }
 .post-content { color: var(--content); font-size: 17px; }
 .post-content p { margin: 12px 0; }
 

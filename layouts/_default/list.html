@@ -7,6 +7,17 @@
 
 {{- $paginator := .Paginate .Pages }}
 {{- range $paginator.Pages }}
+{{- $cur := . }}
+{{- $show := true }}
+{{- with .Params.translationKey }}
+{{- $vs := where site.RegularPages "Params.translationKey" . }}
+{{- if gt (len $vs) 1 }}
+{{- $rep := index $vs 0 }}
+{{- range $vs }}{{ if eq (upper (.Params.lang | default "")) "EN" }}{{ $rep = . }}{{ end }}{{ end }}
+{{- if ne $rep.Permalink $cur.Permalink }}{{ $show = false }}{{ end }}
+{{- end }}
+{{- end }}
+{{- if $show }}
 <article class="post-entry">
   <div class="entry-header">
     {{- if ne $kind "term" }}
@@ -19,6 +30,7 @@
     <h2 class="entry-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
   </div>
 </article>
+{{- end }}
 {{- end }}
 
 {{- if gt $paginator.TotalPages 1 }}

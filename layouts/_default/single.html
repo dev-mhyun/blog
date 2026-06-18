@@ -12,6 +12,16 @@
       {{- with .Description }}&nbsp;·&nbsp;{{ . }}{{- end }}
     </div>
     {{- end }}
+    {{- with .Params.translationKey }}
+    {{- $versions := where site.RegularPages "Params.translationKey" . }}
+    {{- if ge (len $versions) 2 }}
+    <div class="lang-toggle">
+      {{- range (sort $versions "Params.lang") }}
+      <a class="lang-opt{{ if eq .Permalink $.Permalink }} active{{ end }}" href="{{ .Permalink }}">{{ upper (.Params.lang | default "en") }}</a>
+      {{- end }}
+    </div>
+    {{- end }}
+    {{- end }}
   </header>
 
   {{- if .Content }}
