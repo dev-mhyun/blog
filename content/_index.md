@@ -12,24 +12,24 @@ cv: "/cv/"
 
 ## Experiences
 
-{{< entry date="Jul 2023 – Present" title="Undergraduate Researcher" org="**CSEC Lab. Soongsil Univ.**" >}}
+{{< entry date="Jul 2023 – Present" title="Undergraduate Researcher" org="[**CSEC Lab. Soongsil Univ.**](http://csec.ssu.ac.kr/)" >}}
 - AI Safety Researcher
   - Research on interpreting LLM representations through mechanistic interpretability
   - Research on AINN attack&defense
   - Researching red teaming techniques such as adversarial prompts and jail breaks to penetrate actual LLM services, targeting LLMs
 {{< /entry >}}
 
-{{< entry date="Nov 2025 – Jan 2026" title="ML Engineer" org="**Microsoft Singapore**(Outsourcing)" >}}
+{{< entry date="Nov 2025 – Jan 2026" title="ML Engineer" org="[**Microsoft Singapore**](https://local.microsoft.com/communities/asia-pacific/singapore/) (Outsourcing)" >}}
 - ML Engineer for an AI model-based service demo optimized for Microsoft laptop NPUs (for Microsoft client showcases)
 {{< /entry >}}
 
-{{< entry date="Jun 2025 – Aug 2025" title="Operator" org="**ACSC2025** (OutSourcing)" >}}
+{{< entry date="Jun 2025 – Aug 2025" title="Operator" org="[**ACSC2025**](https://acsc.asia/) (OutSourcing)" >}}
 - Operated two AI security problems to ASCS2025, the Asian qualifier for the ICC World Hacking Defense Competition.
   - Vulnerabilities in TPM-based encrypted communication methods utilizing Neural Network
   - Reverse engineering a VM implemented as a neural network using an ONNX file format model.
 {{< /entry >}}
 
-{{< entry date="Dec 2024" title="Instructor" org="**DAY-1 Company** (OutSourcing)" >}}
+{{< entry date="Dec 2024" title="Instructor" org="[**DAY-1 Company**](https://fastcampus.co.kr/) (OutSourcing)" >}}
 - Participated as an instructor in the 25 Python Skill-up Data Analysis MASTER CLASS lectures.
 {{< /entry >}}
 
