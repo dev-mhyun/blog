@@ -1,0 +1,24 @@
+{{- define "main" }}
+{{- $keyfile := .Params.gpgkey | default "pubkey.asc" }}
+{{- $keypath := printf "static/%s" $keyfile }}
+{{- $hasKey := os.FileExists $keypath }}
+<div class="contact-page">
+  <h1 class="page-title">{{ .Title }}</h1>
+  <div class="post-content">
+    {{ .Content }}
+
+    {{- with .Params.email }}
+    <p class="contact-email">Email — <a href="mailto:{{ . }}">{{ . }}</a></p>
+    {{- end }}
+
+    <h3>PGP / GPG</h3>
+    {{- if $hasKey }}
+    {{- with .Params.gpgfingerprint }}<p>Fingerprint: <code>{{ . }}</code></p>{{- end }}
+    <p><a class="cv-dl" href="{{ $keyfile | relURL }}" download>Download public key &darr;</a></p>
+    <pre class="gpg-key">{{ os.ReadFile $keypath }}</pre>
+    {{- else }}
+    <p>My PGP public key will be posted here soon.</p>
+    {{- end }}
+  </div>
+</div>
+{{- end }}

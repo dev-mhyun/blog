@@ -15,7 +15,7 @@
       {{- with .Params.role }}<p class="hero-role">{{ . | markdownify }}</p>{{- end }}
       {{- with .Params.bio }}<div class="hero-bio">{{ . | markdownify }}</div>{{- end }}
       <p class="hero-links">
-        {{- with .Params.email }}<a href="mailto:{{ . }}">Email</a>{{- end }}
+        {{- if .Params.email }}<a href="{{ "/contact/" | relURL }}">Email</a>{{- end }}
         {{- with .Params.github }}<a href="{{ . }}" rel="me">GitHub</a>{{- end }}
         {{- with .Params.x }}<a href="{{ . }}" rel="me">X</a>{{- end }}
         {{- with .Params.blog }}<a href="{{ . }}">Blog</a>{{- end }}

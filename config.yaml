@@ -17,6 +17,10 @@ menu:
       name: CV
       url: /cv/
       weight: 30
+    - identifier: contact
+      name: Contact
+      url: /contact/
+      weight: 40
 
 params:
   env: production

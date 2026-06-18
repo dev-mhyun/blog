@@ -231,6 +231,10 @@ button#theme-toggle { font-size: 20px; color: var(--secondary); }
   .award-place { margin-inline-start: 0; }
 }
 
+.page-title { font-family: var(--serif); font-size: 28px; font-weight: 700; margin: 6px 0 16px; }
+.contact-email { font-size: 16px; }
+.gpg-key { font-family: var(--mono); font-size: 12px; line-height: 1.5; color: var(--c-txt); white-space: pre; overflow-x: auto; }
+
 .reveal-on .js-reveal { opacity: 0; transform: translateY(20px); }
 .reveal-on .js-reveal.is-visible {
   opacity: 1;
