@@ -216,7 +216,7 @@
     </div><div class="cve-title">GGUF v1 string length panics readGGUFV1String</div>
   </summary>
   <div class="cve-body"><div class="cve-desc">A malformed v1 string length is used without bounds validation, panicking <code>readGGUFV1String</code> during model creation.</div>
-    <div class="cve-links"><a class="cve-detaillink" href="/blog/cve-2025-66960guf-v1-string-length-cause-panic-in-readggufv1string/">CVE Details &rarr;</a><a class="cve-detaillink" href="https://github.com/ollama/ollama" target="_blank" rel="noopener">GitHub &rarr;</a>
+    <div class="cve-links"><a class="cve-detaillink" href="/blog/cve-2025-66960guf-v1-string-length-cause-panic-in-readggufv1string/">CVE Details &rarr;</a><a class="cve-detaillink" href="https://nvd.nist.gov/vuln/detail/CVE-2025-66960" target="_blank" rel="noopener">NVD &rarr;</a>
     </div>
   </div>
 </details>
@@ -229,7 +229,7 @@
     </div><div class="cve-title">Unchecked length in the GGUF decoder causes a remote panic / DoS</div>
   </summary>
   <div class="cve-body"><div class="cve-desc">Creating a model from a crafted GGUF blob makes <code>readGGUFString</code> allocate a slice from an unchecked 8-byte length, panicking with <code>makeslice: len out of range</code> and crashing the server.</div>
-    <div class="cve-links"><a class="cve-detaillink" href="/blog/cve-2025-66959panic-dos-via-unchecked-length-in-gguf-decoder-copy/">CVE Details &rarr;</a><a class="cve-detaillink" href="https://github.com/ollama/ollama" target="_blank" rel="noopener">GitHub &rarr;</a>
+    <div class="cve-links"><a class="cve-detaillink" href="/blog/cve-2025-66959panic-dos-via-unchecked-length-in-gguf-decoder-copy/">CVE Details &rarr;</a><a class="cve-detaillink" href="https://nvd.nist.gov/vuln/detail/CVE-2025-66959" target="_blank" rel="noopener">NVD &rarr;</a>
     </div>
   </div>
 </details>
