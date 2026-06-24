@@ -34,7 +34,7 @@ cv: "/cv/"
 {{< /entry >}}
 
 ## CVE
-{{< cve id="NBB-2026-0263" tech="Naver" icon="https://cdn.simpleicons.org/naver" type="DOM XSS" cvss="v4" score="N/A" title="\<REDACTED\>">}}
+{{< cve id="NBB-2026-0263" tech="Naver" icon="https://cdn.simpleicons.org/naver" type="Cross Origin DOM XSS" cvss="v4" score="N/A" title="\<REDACTED\>">}}
 {{< /cve >}}
 
 {{< cve id="CVE-2026-5241" tech="Huggingface" icon="https://cdn.simpleicons.org/huggingface/transformers" type="Remote Code Execution" cvss="v3.1" score="9.6" level="Critical" title="Arbitrary code execution via nested trust_remote_code bypass" nvd="https://nvd.nist.gov/vuln/detail/CVE-2026-5241">}}
