@@ -69,6 +69,8 @@ Awarded for "악성 파일 탐지 모델 취약성 분석 및 방어 프레임�
 
 ## Speaker
 
+{{< entry date="Aug 23, 2026" title="!safetensors, un?trust_remote_code" org="**HakingCamp 33rd**" >}}
+{{< /entry >}}
 {{< entry date="Dec 21, 2025" title="블루오션인줄 알고 뛰어든 인공지능보안에 대하여" org="**HolyShield 2025**" >}}
 {{< /entry >}}
 
