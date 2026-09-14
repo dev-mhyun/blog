@@ -50,6 +50,10 @@ Creating a model from a crafted GGUF blob makes `readGGUFString` allocate a slic
 
 ## Honours & Awards
 
+{{< award title="NAVER Hall of Fame" category="Bug bounty" catcolor="#d4af37" place="🏆" tier="gold" org="Hpsace" date="2026" link="https://bugbounty.naver.com/hall-of-fame" >}}
+NAVER Hall of Fame 2026
+{{< /award >}}
+
 {{< award title="Hspace Hall of Fame" category="Bug bounty" catcolor="#d4af37" place="🏆" tier="gold" org="Hpsace" date="2026" link="https://hspace.io/hall-of-fame" >}}
 Hspace Hall of Fame 2026 1st.
 {{< /award >}}
