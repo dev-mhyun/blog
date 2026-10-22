@@ -231,6 +231,60 @@ button#theme-toggle { font-size: 20px; color: var(--secondary); }
   .award-place { margin-inline-start: 0; }
 }
 
+/* ── CTF roll-up ───────────────────────────────────────────────────────────
+   Reuses the .award card chrome so it sits level with its siblings in the
+   Honours list; the drawer holds a results table instead of prose. */
+.ctfs-count {
+  margin-inline-start: auto;
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  color: var(--secondary); border: 1px solid var(--border-strong);
+  border-radius: 8px; padding: 2px 9px; white-space: nowrap;
+}
+.ctfs-body { padding: 0 18px 14px 18px; }
+
+.ctf-row {
+  --av: var(--secondary);
+  display: grid;
+  grid-template-columns: 62px 1fr auto;
+  gap: 14px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+}
+.ctf-row:first-child { border-top: none; padding-top: 2px; }
+.ctf-row[data-tier="gold"]   { --av: #b8860b; }
+.ctf-row[data-tier="silver"] { --av: #8c8c8c; }
+.ctf-row[data-tier="bronze"] { --av: #a36b3a; }
+.ctf-row[data-tier="blue"]   { --av: #3b6ea5; }
+.dark .ctf-row[data-tier="gold"]   { --av: #e3c15a; }
+.dark .ctf-row[data-tier="silver"] { --av: #c4c4c4; }
+.dark .ctf-row[data-tier="bronze"] { --av: #cd9b6a; }
+.dark .ctf-row[data-tier="blue"]   { --av: #8fb4d8; }
+
+.ctf-mark { display: flex; justify-content: center; align-items: baseline; }
+.ctf-rank {
+  font-family: var(--sans); font-size: 11.5px; font-weight: 600;
+  color: var(--av); border: 1px solid var(--av);
+  border-radius: 20px; padding: 2px 9px; white-space: nowrap; line-height: 1.5;
+}
+.ctf-medal { font-size: 15px; line-height: 1.4; }
+.ctf-trophy { font-size: 13px; opacity: .8; }
+
+.ctf-main { min-width: 0; }
+.ctf-event { font-family: var(--serif); font-size: 15.5px; font-weight: 600; color: var(--primary); line-height: 1.35; }
+.ctf-event a { color: var(--primary); text-decoration: none; box-shadow: none; }
+.ctf-event a:hover { color: var(--accent); }
+.ctf-sub { font-family: var(--sans); font-size: 12.5px; color: var(--secondary); margin-top: 3px; }
+.ctf-date { font-family: var(--sans); font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+.ctf-event p, .ctf-sub p { margin: 0; }
+
+@media (max-width: 640px) {
+  .ctfs-count { margin-inline-start: 0; }
+  .ctfs-body { padding: 0 16px 12px 16px; }
+  .ctf-row { grid-template-columns: 62px 1fr; gap: 4px 12px; }
+  .ctf-date { grid-column: 2; }
+}
+
 /* ── Publications ──────────────────────────────────────────────────────────
    A toggle card like .cve / .award, but led by a venue "stamp" instead of an
    icon: collapsed shows the citation, open shows the TL;DR, status and links. */

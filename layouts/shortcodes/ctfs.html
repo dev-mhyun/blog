@@ -1,0 +1,21 @@
+{{- $title    := .Get "title" | default "CTFs" -}}
+{{- $cat      := .Get "category" | default "CTF" -}}
+{{- $catcolor := .Get "catcolor" | default "#FF206E" -}}
+{{- $meta     := .Get "meta" -}}
+{{- $inner    := .Inner -}}
+{{- /* Count the nested {{< ctf >}} rows so the badge never goes stale. */ -}}
+{{- $n := len (findRE `class="ctf-row"` $inner) -}}
+<details class="award ctfs" data-tier="{{ lower (.Get "tier" | default "gold") }}">
+  <summary class="award-summary">
+    <div class="award-main">
+      <span class="award-title">{{ $title }}</span>
+      {{- with $cat }}<span class="award-cat" style="color: {{ $catcolor }}; border-color: {{ $catcolor }};">{{ . }}</span>{{- end }}
+      {{- if $n }}<span class="ctfs-count">{{ $n }} result{{ if gt $n 1 }}s{{ end }}</span>{{- end }}
+      <svg class="award-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    {{- with $meta }}<div class="award-meta">{{ . | markdownify }}</div>{{- end }}
+  </summary>
+  <div class="award-body ctfs-body">
+    {{ $inner }}
+  </div>
+</details>

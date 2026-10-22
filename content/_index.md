@@ -10,6 +10,11 @@ x : "https://x.com/desckimh"
 cv: "/cv/"
 ---
 
+## Education
+
+{{< entry date="2023 – present" title="B.S., Computer Science and Software Engineering" org="Soongsil University, Seoul, Korea">}}
+{{< /entry >}}
+
 ## Experiences
 
 {{< entry date="Jul 2023 – Present" title="Undergraduate Researcher" org="[**CSEC Lab. Soongsil Univ.**](http://csec.ssu.ac.kr/)" >}}
@@ -60,13 +65,36 @@ Creating a model from a crafted GGUF blob makes `readGGUFString` allocate a slic
 
 ## Honours & Awards
 
-{{< award title="Honorable Mention" category="CTF" catcolor="#FF206E" place="🏆" tier="gold" org="Ministry of Science and ICT (MSIT), Korea Information Security Industry Association (KISIA)" date="Aug 2026" link="https://www.dailysecu.com/news/articleView.html?idxno=208122" >}}
-Honorable Mention, 2026 KISIA Information Security Competition
-{{< /award >}}
-
-{{< award title="Excellence Award (Advanced Division)" category="CTF" catcolor="#FF206E" place="🏆" tier="gold" org="Sejong Special Self-Governing City, National Security Research Institute" date="July 2026" link="https://v.daum.net/v/20260710155058437" >}}
-Excellence Award (Advanced Division), HackTheon Sejong International Collegiate Cybersecurity Competition 2026
-{{< /award >}}
+{{< ctfs title="CTFs" >}}
+  {{< ctf event="2026 KISIA Information Security Competition" tier="gold" award="Honorable Mention" org="Ministry of Science and ICT (MSIT), Korea Information Security Industry Association (KISIA)" date="Aug 2026" link="https://www.dailysecu.com/news/articleView.html?idxno=208122" >}}
+  {{< ctf event="HackTheon Sejong International Collegiate Cybersecurity Competition 2026" tier="gold" award="Excellence Award (Advanced Division)" org="Sejong Special Self-Governing City, National Security Research Institute" date="July 2026" link="https://v.daum.net/v/20260710155058437" >}}
+  {{< ctf event="UMDCTF 2026" rank="1st" tier="gold" >}}
+  {{< ctf event="Vishwa CTF 2026" rank="1st" tier="gold" >}}
+  {{< ctf event="Silly CTF 2026" rank="1st" tier="gold" >}}
+  {{< ctf event="Blue Hens CTF 2026" rank="1st" tier="gold" >}}
+  {{< ctf event="Break The Syntax CTF 2026" rank="1st" tier="gold" >}}
+  {{< ctf event="squ1rrel CTF 2026" rank="1st" tier="gold" award="Open division" >}}
+  {{< ctf event="b01lers CTF 2026" rank="2nd" tier="silver" award="Jeopardy 1st place" >}}
+  {{< ctf event="Kalmar CTF 2026" rank="2nd" tier="silver" >}}
+  {{< ctf event="Ping CTF 2026" rank="2nd" tier="silver" >}}
+  {{< ctf event="TexSaw CTF 2026" rank="2nd" tier="silver" >}}
+  {{< ctf event="Dawg CTF 2026" rank="2nd" tier="silver" >}}
+  {{< ctf event="UndutManing CTF 2026" rank="2nd" tier="silver" >}}
+  {{< ctf event="Midnight Flag CTF 2026" rank="3rd" tier="bronze" >}}
+  {{< ctf event="UMass CTF 2026" rank="3rd" tier="bronze" >}}
+  {{< ctf event="TJCTF 2026" rank="3rd" tier="bronze" >}}
+  {{< ctf event="BSidesSF CTF 2026" rank="3rd" tier="bronze" >}}
+  {{< ctf event="UnivsThreats CTF 2026 Quals" rank="3rd" tier="bronze" >}}
+  {{< ctf event="Batman's Kitchen CTF 2026" rank="3rd" tier="bronze" >}}
+  {{< ctf event="EhaX CTF 2026" rank="4th" >}}
+  {{< ctf event="UTCTF 2026" rank="4th" >}}
+  {{< ctf event="TAMU CTF 2026" rank="4th" >}}
+  {{< ctf event="Srdnlen CTF 2026 Quals" rank="5th" >}}
+  {{< ctf event="Codegate CTF 2026 Quals" rank="5th" >}}
+  {{< ctf event="DICE CTF 2026 Quals" rank="6th" award="Finalist" >}}
+  {{< ctf event="Midnight Sun CTF Quals" rank="6th" >}}
+  {{< ctf event="BITS CTF 2026" rank="6th" >}}
+{{< /ctfs >}}
 
 {{< award title="NAVER Hall of Fame" category="Bug bounty" catcolor="#d4af37" place="🏆" tier="gold" org="Naver" date="2026" link="https://bugbounty.naver.com/hall-of-fame" >}}
 NAVER Hall of Fame 2026
@@ -94,10 +122,4 @@ Awarded for "악성 파일 탐지 모델 취약성 분석 및 방어 프레임�
 {{< entry date="Aug 23, 2026" title="!safetensors, un?trust_remote_code" org="**HakingCamp 33rd**" >}}
 {{< /entry >}}
 {{< entry date="Dec 21, 2025" title="블루오션인줄 알고 뛰어든 인공지능보안에 대하여" org="**HolyShield 2025**" >}}
-{{< /entry >}}
-
-
-## Education
-
-{{< entry date="2023 – present" title="Soongsil University" org="Software Engineering">}}
 {{< /entry >}}

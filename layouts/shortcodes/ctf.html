@@ -1,0 +1,31 @@
+{{- $event := .Get "event" -}}
+{{- $rank  := .Get "rank" -}}
+{{- $tier  := .Get "tier" | default "" -}}
+{{- $award := .Get "award" -}}
+{{- $team  := .Get "team" -}}
+{{- $org   := .Get "org" -}}
+{{- $date  := .Get "date" -}}
+{{- $link  := .Get "link" -}}
+{{- /* Medals claim a placement, so they are opt-in; 🏆 is the neutral default. */ -}}
+{{- $medals := dict "gold" "🥇" "silver" "🥈" "bronze" "🥉" "finalist" "🏅" -}}
+{{- $medal := index $medals (lower (.Get "medal" | default "")) -}}
+{{- $sub := slice -}}
+{{- with $award }}{{ $sub = $sub | append . }}{{ end -}}
+{{- with $team }}{{ $sub = $sub | append . }}{{ end -}}
+{{- with $org }}{{ $sub = $sub | append . }}{{ end -}}
+<div class="ctf-row"{{ with $tier }} data-tier="{{ lower . }}"{{ end }}>
+  <div class="ctf-mark">
+    {{- if $rank }}<span class="ctf-rank">{{ $rank }}</span>
+    {{- else if $medal }}<span class="ctf-medal">{{ $medal }}</span>
+    {{- else }}<span class="ctf-medal ctf-trophy">🏆</span>
+    {{- end }}
+  </div>
+  <div class="ctf-main">
+    <div class="ctf-event">
+      {{- if $link }}<a href="{{ $link }}"{{ if hasPrefix $link "http" }} target="_blank" rel="noopener"{{ end }}>{{ $event | markdownify }}</a>
+      {{- else }}{{ $event | markdownify }}{{ end -}}
+    </div>
+    {{- with $sub }}<div class="ctf-sub">{{ delimit . " · " | markdownify }}</div>{{- end }}
+  </div>
+  {{- with $date }}<div class="ctf-date">{{ . }}</div>{{- end }}
+</div>
