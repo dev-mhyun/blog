@@ -24,7 +24,7 @@ cv: "/cv/"
   - Researching red teaming techniques such as adversarial prompts and jail breaks to penetrate actual LLM services, targeting LLMs
 {{< /entry >}}
 
-{{< entry date="Oct 2026 – Present" title="Researcher" org="[**STEALIEN**](https://stealien.com/)" >}}
+{{< entry date="Oct 2026 – Present" title="Researcher&Engineer" org="[**STEALIEN**](https://stealien.com/)" >}}
 - NDA
 {{< /entry >}}
 
