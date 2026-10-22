@@ -36,7 +36,7 @@ cv: "/cv/"
 ## Publications
 
 {{< pub
-  venue="EMNLP(Oral)" year="2026" type="conference" status="to appear"
+  venue="EMNLP(Main)" year="2026" type="conference" status="to appear"
   title="Legible but Not Localized: Jailbreak Geometry in Mixture-of-Experts Language Models Is Attack-Specific"
   authors="Yubin IM, Myeonghyun Kim, Seongmin Kim, and Haehyun Cho"
   full="The 2026 Conference on Empirical Methods in Natural Language Processing (EMNLP)"

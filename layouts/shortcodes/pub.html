@@ -1,4 +1,5 @@
-{{- $venue       := .Get "venue" -}}
+{{- $venue       := .Get "venue" | default "" -}}
+{{- $track       := .Get "track" | default "" -}}
 {{- $year        := .Get "year" -}}
 {{- $title       := .Get "title" -}}
 {{- $link        := .Get "link" -}}
@@ -12,6 +13,17 @@
 {{- $award       := .Get "award" -}}
 {{- $type        := .Get "type" | default "conference" -}}
 {{- $note        := trim .Inner " \n\t" -}}
+{{- $tldr        := .Get "tldr" | default "TL;DR" -}}
+
+{{- /* venue="EMNLP (Oral)" -> acronym stays big, "Oral" drops to the track line. */ -}}
+{{- if and (not $track) (findRE `\([^()]+\)\s*$` $venue) -}}
+  {{- $track = replaceRE `^.*\(([^()]+)\)\s*$` `$1` $venue -}}
+  {{- $venue = trim (replaceRE `\s*\([^()]+\)\s*$` `` $venue) " " -}}
+{{- end -}}
+
+{{- /* Step the acronym down so a long venue never wraps out of the tile. */ -}}
+{{- $vsize := "sm" -}}
+{{- if gt (len $venue) 15 }}{{ $vsize = "xl" }}{{ else if gt (len $venue) 11 }}{{ $vsize = "lg" }}{{ else if gt (len $venue) 7 }}{{ $vsize = "md" }}{{ end -}}
 
 {{- /* Bold my own name in the author list. me="Myeonghyun Kim|M. Kim" for aliases. */ -}}
 {{- range (split $me "|") -}}
@@ -33,32 +45,46 @@
 {{- with .Get "bib" }}{{ $links = $links | append (dict "label" "BibTeX" "url" .) }}{{ end -}}
 {{- with .Get "site" }}{{ $links = $links | append (dict "label" "Site" "url" .) }}{{ end -}}
 
-<article class="pub" data-type="{{ lower $type }}">
-  {{- if or $venue $year }}
-  <div class="pub-venue">
-    {{- with $venue }}<span class="pub-venue-name">{{ . }}</span>{{- end }}
-    {{- with $year }}<span class="pub-venue-year">{{ . }}</span>{{- end }}
-  </div>
-  {{- end }}
-  <div class="pub-body">
-    {{- with $title }}
-    <h3 class="pub-title">
-      {{- if $link }}<a href="{{ $link }}"{{ if hasPrefix $link "http" }} target="_blank" rel="noopener"{{ end }}>{{ . | markdownify }}</a>
-      {{- else }}{{ . | markdownify }}{{ end -}}
-    </h3>
-    {{- end }}
-    {{- with $authors }}<div class="pub-authors">{{ . | markdownify }}</div>{{- end }}
-    {{- if or $full (or $location $date) }}
-    <div class="pub-ref">
-      {{- with $full }}<em class="pub-full">{{ . | markdownify }}</em>{{- end }}
-      {{- with $location }}{{ if $full }}<span class="pub-sep">&middot;</span>{{ end }}{{ . }}{{- end }}
-      {{- with $date }}{{ if or $full $location }}<span class="pub-sep">&middot;</span>{{ end }}{{ . }}{{- end }}
+{{- $hasFoot := or $status (or $award $links) -}}
+{{- $hasBody := or $note $hasFoot -}}
+
+<details class="pub{{ if not $hasBody }} no-toggle{{ end }}" data-type="{{ lower $type }}">
+  <summary class="pub-summary">
+    {{- if or $venue (or $year $track) }}
+    <div class="pub-venue" data-vlen="{{ $vsize }}">
+      {{- with $venue }}<span class="pub-venue-name">{{ . }}</span>{{- end }}
+      {{- if or $year $track }}
+      <span class="pub-venue-meta">
+        {{- with $year }}<span class="pub-venue-year">{{ . }}</span>{{- end }}
+        {{- with $track }}<span class="pub-venue-track">{{ . }}</span>{{- end }}
+      </span>
+      {{- end }}
     </div>
     {{- end }}
-    {{- with $note }}<div class="pub-note">{{ . | markdownify }}</div>{{- end }}
-    {{- if or $status (or $award $links) }}
+    <div class="pub-body">
+      {{- with $title }}
+      <h3 class="pub-title">
+        {{- if $link }}<a href="{{ $link }}"{{ if hasPrefix $link "http" }} target="_blank" rel="noopener"{{ end }} onclick="event.stopPropagation()">{{ . | markdownify }}</a>
+        {{- else }}{{ . | markdownify }}{{ end -}}
+      </h3>
+      {{- end }}
+      {{- with $authors }}<div class="pub-authors">{{ . | markdownify }}</div>{{- end }}
+      {{- if or $full (or $location $date) }}
+      <div class="pub-ref">
+        {{- with $full }}<em class="pub-full">{{ . | markdownify }}</em>{{- end }}
+        {{- with $location }}{{ if $full }}<span class="pub-sep">&middot;</span>{{ end }}{{ . }}{{- end }}
+        {{- with $date }}{{ if or $full $location }}<span class="pub-sep">&middot;</span>{{ end }}{{ . }}{{- end }}
+      </div>
+      {{- end }}
+    </div>
+    {{- if $hasBody }}<svg class="pub-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>{{- end }}
+  </summary>
+  {{- if $hasBody }}
+  <div class="pub-drawer">
+    {{- with $note }}<div class="pub-note">{{ with $tldr }}<span class="pub-note-label">{{ . }}</span>{{ end }}{{ $note | markdownify }}</div>{{- end }}
+    {{- if $hasFoot }}
     <div class="pub-foot">
-      {{- with $status }}<span class="pub-status"{{ with $statuscolor }} style="color: {{ . }}; border-color: {{ . }};"{{ end }}>{{ . }}</span>{{- end }}
+      {{- with $status }}<span class="pub-status" data-status="{{ lower . }}"{{ with $statuscolor }} style="color: {{ . }}; border-color: {{ . }};"{{ end }}>{{ . }}</span>{{- end }}
       {{- with $award }}<span class="pub-award">{{ . }}</span>{{- end }}
       {{- with $links }}
       <div class="pub-links">
@@ -68,4 +94,5 @@
     </div>
     {{- end }}
   </div>
-</article>
+  {{- end }}
+</details>
