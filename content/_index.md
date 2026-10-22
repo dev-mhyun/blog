@@ -19,6 +19,10 @@ cv: "/cv/"
   - Researching red teaming techniques such as adversarial prompts and jail breaks to penetrate actual LLM services, targeting LLMs
 {{< /entry >}}
 
+{{< entry date="Oct 2026 – Present" title="Researcher" org="[**STEALIEN**](https://stealien.com/)" >}}
+- NDA
+{{< /entry >}}
+
 {{< entry date="Nov 2025 – Jan 2026" title="ML Engineer" org="[**Microsoft Singapore**](https://local.microsoft.com/communities/asia-pacific/singapore/) (Outsourcing)" >}}
 - ML Engineer for an AI model-based service demo optimized for Microsoft laptop NPUs (for Microsoft client showcases)
 {{< /entry >}}
@@ -29,11 +33,17 @@ cv: "/cv/"
   - Reverse engineering a VM implemented as a neural network using an ONNX file format model.
 {{< /entry >}}
 
-{{< entry date="Dec 2024" title="Instructor" org="[**DAY-1 Company**](https://fastcampus.co.kr/) (OutSourcing)" >}}
-- Participated as an instructor in the 25 Python Skill-up Data Analysis MASTER CLASS lectures.
-{{< /entry >}}
+## Publications
 
-## CVE
+{{< pub
+  venue="EMNLP(Oral)" year="2026" type="conference" status="to appear"
+  title="Legible but Not Localized: Jailbreak Geometry in Mixture-of-Experts Language Models Is Attack-Specific"
+  authors="Yubin IM, Myeonghyun Kim, Seongmin Kim, and Haehyun Cho"
+  full="The 2026 Conference on Empirical Methods in Natural Language Processing (EMNLP)"
+  location="Budapest, Hungary" date="Oct 2026" >}}
+{{< /pub >}}
+
+## CVEs
 {{< cve id="NBB-2026-0263" tech="Naver" icon="https://cdn.simpleicons.org/naver" type="Cross Origin DOM XSS" cvss="v4" score="N/A" title="Chzzk Account Takeover and PII Leakage via Cross-Origin DOM-Based XSS">}}
 {{< /cve >}}
 
@@ -49,6 +59,14 @@ Creating a model from a crafted GGUF blob makes `readGGUFString` allocate a slic
 {{< /cve >}}
 
 ## Honours & Awards
+
+{{< award title="Honorable Mention" category="CTF" catcolor="#FF206E" place="🏆" tier="gold" org="Ministry of Science and ICT (MSIT), Korea Information Security Industry Association (KISIA)" date="Aug 2026" link="https://www.dailysecu.com/news/articleView.html?idxno=208122" >}}
+Honorable Mention, 2026 KISIA Information Security Competition
+{{< /award >}}
+
+{{< award title="Excellence Award (Advanced Division)" category="CTF" catcolor="#FF206E" place="🏆" tier="gold" org="Sejong Special Self-Governing City, National Security Research Institute" date="July 2026" link="https://v.daum.net/v/20260710155058437" >}}
+Excellence Award (Advanced Division), HackTheon Sejong International Collegiate Cybersecurity Competition 2026
+{{< /award >}}
 
 {{< award title="NAVER Hall of Fame" category="Bug bounty" catcolor="#d4af37" place="🏆" tier="gold" org="Naver" date="2026" link="https://bugbounty.naver.com/hall-of-fame" >}}
 NAVER Hall of Fame 2026

@@ -231,6 +231,119 @@ button#theme-toggle { font-size: 20px; color: var(--secondary); }
   .award-place { margin-inline-start: 0; }
 }
 
+/* ── Publications ──────────────────────────────────────────────────────────
+   Not a toggle card like .cve / .award: a paper is meant to be read at a
+   glance, so everything stays open and a venue "stamp" carries the left rail. */
+.pub {
+  --pv: var(--accent);
+  --ps: #2f7d6b;
+  --pub-tint: #f7f3e9;
+  display: grid;
+  grid-template-columns: 86px 1fr;
+  gap: 16px;
+  align-items: start;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  background: var(--theme);
+  padding: 16px 18px;
+  margin: 12px 0;
+  transition: border-color .2s ease;
+}
+.pub:hover { border-color: var(--accent-soft); }
+.dark .pub { --pub-tint: #22252a; }
+
+.pub[data-type="journal"]    { --pv: #3b6ea5; }
+.pub[data-type="workshop"]   { --pv: #2f7d6b; }
+.pub[data-type="preprint"]   { --pv: var(--secondary); --ps: var(--secondary); }
+.pub[data-type="thesis"]     { --pv: #7a6a3a; }
+.dark .pub                   { --ps: #7fbfa9; }
+.dark .pub[data-type="journal"]  { --pv: #9bb4d6; }
+.dark .pub[data-type="workshop"] { --pv: #7fbfa9; }
+.dark .pub[data-type="thesis"]   { --pv: #cdbb86; }
+
+.pub-venue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 10px 6px;
+  border: 1px solid var(--border-strong);
+  border-radius: 9px;
+  background: var(--pub-tint);
+  box-shadow: inset 2px 0 0 var(--pv);
+  text-align: center;
+}
+.pub-venue-name {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  line-height: 1.2;
+  color: var(--pv);
+  overflow-wrap: anywhere;
+}
+.pub-venue-year { font-family: var(--mono); font-size: 12px; color: var(--secondary); line-height: 1.2; }
+
+.pub-body { min-width: 0; }
+.pub-title {
+  font-family: var(--serif);
+  font-size: 17.5px;
+  font-weight: 600;
+  line-height: 1.34;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--primary);
+  margin: 0;
+}
+.pub-title a { color: var(--primary); text-decoration: none; box-shadow: none; }
+.pub-title a:hover { color: var(--accent); }
+
+.pub-authors { font-family: var(--sans); font-size: 13.5px; color: var(--secondary); margin-top: 6px; }
+.pub-me {
+  font-weight: 700;
+  color: var(--primary);
+  box-shadow: 0 1px 0 var(--accent-soft);
+  padding-bottom: 1px;
+}
+.pub-ref { font-family: var(--serif); font-size: 13.5px; color: var(--secondary); margin-top: 5px; }
+.pub-full { font-style: italic; }
+.pub-sep { color: var(--tertiary); margin: 0 6px; }
+.pub-note { font-size: 14.5px; color: var(--content); margin-top: 9px; }
+.pub-title p, .pub-authors p, .pub-ref p, .pub-note p { margin: 0; }
+.pub-note p + p { margin-top: 8px; }
+.pub-note a, .pub-authors a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+
+.pub-foot { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; margin-top: 12px; }
+.pub-status {
+  font-family: var(--sans); font-size: 10.5px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: .07em;
+  color: var(--ps); border: 1px dashed var(--ps);
+  border-radius: 20px; padding: 3px 10px; white-space: nowrap;
+}
+.pub-award {
+  font-family: var(--sans); font-size: 10.5px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: .07em;
+  color: #b8860b; border: 1px solid #b8860b;
+  border-radius: 20px; padding: 3px 10px; white-space: nowrap;
+}
+.dark .pub-award { color: #e3c15a; border-color: #e3c15a; }
+.pub-links { display: flex; gap: 7px; flex-wrap: wrap; margin-inline-start: auto; }
+.pub-link {
+  font-family: var(--sans); font-size: 12px; font-weight: 500;
+  color: var(--accent); text-decoration: none;
+  border: 1px solid var(--border-strong); border-radius: 6px;
+  padding: 3px 11px; line-height: 1.6; white-space: nowrap;
+  transition: border-color .15s ease, background-color .15s ease;
+}
+.pub-link:hover { border-color: var(--accent-soft); background: var(--pub-tint); }
+
+@media (max-width: 640px) {
+  .pub { grid-template-columns: 1fr; gap: 12px; padding: 14px 16px; }
+  .pub-venue { flex-direction: row; justify-content: flex-start; gap: 8px; padding: 6px 12px; width: fit-content; }
+  .pub-links { margin-inline-start: 0; }
+}
+
 .page-title { font-family: var(--serif); font-size: 28px; font-weight: 700; margin: 6px 0 16px; }
 .contact-email { font-size: 16px; }
 .gpg-key { font-family: var(--mono); font-size: 12px; line-height: 1.5; color: var(--c-txt); white-space: pre; overflow-x: auto; }

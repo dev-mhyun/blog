@@ -1,0 +1,71 @@
+{{- $venue       := .Get "venue" -}}
+{{- $year        := .Get "year" -}}
+{{- $title       := .Get "title" -}}
+{{- $link        := .Get "link" -}}
+{{- $authors     := .Get "authors" | default "" -}}
+{{- $me          := .Get "me" | default "Myeonghyun Kim" -}}
+{{- $full        := .Get "full" -}}
+{{- $location    := .Get "location" -}}
+{{- $date        := .Get "date" -}}
+{{- $status      := .Get "status" -}}
+{{- $statuscolor := .Get "statuscolor" -}}
+{{- $award       := .Get "award" -}}
+{{- $type        := .Get "type" | default "conference" -}}
+{{- $note        := trim .Inner " \n\t" -}}
+
+{{- /* Bold my own name in the author list. me="Myeonghyun Kim|M. Kim" for aliases. */ -}}
+{{- range (split $me "|") -}}
+  {{- $n := trim . " " -}}
+  {{- if and $n $authors -}}
+    {{- $authors = replace $authors $n (printf `<span class="pub-me">%s</span>` $n) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $links := slice -}}
+{{- with .Get "pdf" }}{{ $links = $links | append (dict "label" "PDF" "url" .) }}{{ end -}}
+{{- with .Get "arxiv" }}{{ $links = $links | append (dict "label" "arXiv" "url" .) }}{{ end -}}
+{{- with .Get "code" }}{{ $links = $links | append (dict "label" "Code" "url" .) }}{{ end -}}
+{{- with .Get "data" }}{{ $links = $links | append (dict "label" "Data" "url" .) }}{{ end -}}
+{{- with .Get "slides" }}{{ $links = $links | append (dict "label" "Slides" "url" .) }}{{ end -}}
+{{- with .Get "poster" }}{{ $links = $links | append (dict "label" "Poster" "url" .) }}{{ end -}}
+{{- with .Get "video" }}{{ $links = $links | append (dict "label" "Video" "url" .) }}{{ end -}}
+{{- with .Get "doi" }}{{ $links = $links | append (dict "label" "DOI" "url" .) }}{{ end -}}
+{{- with .Get "bib" }}{{ $links = $links | append (dict "label" "BibTeX" "url" .) }}{{ end -}}
+{{- with .Get "site" }}{{ $links = $links | append (dict "label" "Site" "url" .) }}{{ end -}}
+
+<article class="pub" data-type="{{ lower $type }}">
+  {{- if or $venue $year }}
+  <div class="pub-venue">
+    {{- with $venue }}<span class="pub-venue-name">{{ . }}</span>{{- end }}
+    {{- with $year }}<span class="pub-venue-year">{{ . }}</span>{{- end }}
+  </div>
+  {{- end }}
+  <div class="pub-body">
+    {{- with $title }}
+    <h3 class="pub-title">
+      {{- if $link }}<a href="{{ $link }}"{{ if hasPrefix $link "http" }} target="_blank" rel="noopener"{{ end }}>{{ . | markdownify }}</a>
+      {{- else }}{{ . | markdownify }}{{ end -}}
+    </h3>
+    {{- end }}
+    {{- with $authors }}<div class="pub-authors">{{ . | markdownify }}</div>{{- end }}
+    {{- if or $full (or $location $date) }}
+    <div class="pub-ref">
+      {{- with $full }}<em class="pub-full">{{ . | markdownify }}</em>{{- end }}
+      {{- with $location }}{{ if $full }}<span class="pub-sep">&middot;</span>{{ end }}{{ . }}{{- end }}
+      {{- with $date }}{{ if or $full $location }}<span class="pub-sep">&middot;</span>{{ end }}{{ . }}{{- end }}
+    </div>
+    {{- end }}
+    {{- with $note }}<div class="pub-note">{{ . | markdownify }}</div>{{- end }}
+    {{- if or $status (or $award $links) }}
+    <div class="pub-foot">
+      {{- with $status }}<span class="pub-status"{{ with $statuscolor }} style="color: {{ . }}; border-color: {{ . }};"{{ end }}>{{ . }}</span>{{- end }}
+      {{- with $award }}<span class="pub-award">{{ . }}</span>{{- end }}
+      {{- with $links }}
+      <div class="pub-links">
+        {{- range . }}<a class="pub-link" href="{{ .url }}"{{ if hasPrefix .url "http" }} target="_blank" rel="noopener"{{ end }}>{{ .label }}</a>{{ end }}
+      </div>
+      {{- end }}
+    </div>
+    {{- end }}
+  </div>
+</article>
