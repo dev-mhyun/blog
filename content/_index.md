@@ -59,7 +59,7 @@ cv: "/cv/"
 {{< cve id="NBB-2026-0263" tech="Naver" icon="https://cdn.simpleicons.org/naver" type="Cross Origin DOM XSS" cvss="v4" score="N/A" bounty="200" title="Chzzk Account Takeover and PII Leakage via Cross-Origin DOM-Based XSS">}}
 {{< /cve >}}
 
-{{< cve id="HVE-2026-0022" tech="Hspace" icon="/img/hspace-logo.png" type="Account Takeover" sev="Critical" bounty="1,200" title="Account Takeover via Unverified Refresh Token Signature">}}
+{{< cve id="HVE-2026-0022" tech="Hspace" icon="/img/hspace-logo.png" type="Account Takeover" sev="Critical" bounty="1,400" title="Account Takeover via Unverified Refresh Token Signature">}}
 {{< /cve >}}
 
 {{< cve id="CVE-2026-5241" tech="Huggingface" icon="https://cdn.simpleicons.org/huggingface/transformers" type="Remote Code Execution" cvss="v3.1"  bounty="750" score="9.6" level="Critical" title="Arbitrary code execution via nested trust_remote_code bypass" nvd="https://nvd.nist.gov/vuln/detail/CVE-2026-5241">}}

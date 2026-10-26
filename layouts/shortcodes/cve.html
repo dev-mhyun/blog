@@ -9,7 +9,7 @@
 {{- $sev       := .Get "sev" -}}
 {{- $sevcolor  := .Get "sevcolor" -}}
 {{- $bounty    := .Get "bounty" -}}
-{{- $currency  := .Get "currency" | default "USD" -}}
+{{- $currency  := .Get "currency" | default "$" -}}
 {{- $title     := .Get "title" -}}
 {{- $link      := .Get "link" -}}
 
@@ -36,7 +36,7 @@
       {{- with $type }}<span class="cve-type"{{ with $typecolor }} style="color: {{ . }}; border-color: {{ . }};"{{ end }}>{{ . }}</span>{{- end }}
       <span class="cve-badges">
         {{- if $sevlabel }}<span class="cve-sev"{{ if $sevcolor }} style="color: {{ $sevcolor }}; border-color: {{ $sevcolor }};"{{ end }}>{{ $sevlabel }}</span>{{ end }}
-        {{- if $bounty }}<span class="cve-bounty">+{{ $bounty }}{{ $currency }}</span>{{ end }}
+        {{- if $bounty }}<span class="cve-bounty">+{{ $bounty }} {{ $currency }}</span>{{ end }}
       </span>
       {{- if $hasBody }}<svg class="cve-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>{{- end }}
     </div>
