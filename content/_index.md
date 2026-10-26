@@ -48,11 +48,21 @@ cv: "/cv/"
   location="Budapest, Hungary" date="Oct 2026" >}}
 {{< /pub >}}
 
-## CVEs
-{{< cve id="NBB-2026-0263" tech="Naver" icon="https://cdn.simpleicons.org/naver" type="Cross Origin DOM XSS" cvss="v4" score="N/A" title="Chzzk Account Takeover and PII Leakage via Cross-Origin DOM-Based XSS">}}
+## CVEs & Bounties
+
+{{< cve tech="Kantega SSO" icon="/img/kantega-sso-logo.png" type="Authentication Bypass" sev="P1" bounty="1,500" >}}
 {{< /cve >}}
 
-{{< cve id="CVE-2026-5241" tech="Huggingface" icon="https://cdn.simpleicons.org/huggingface/transformers" type="Remote Code Execution" cvss="v3.1" score="9.6" level="Critical" title="Arbitrary code execution via nested trust_remote_code bypass" nvd="https://nvd.nist.gov/vuln/detail/CVE-2026-5241">}}
+{{< cve tech="Atlassian-Built Apps" icon="https://cdn.simpleicons.org/atlassian" type="Broken Authentication and Session Management" sev="P2" bounty="1,000" >}}
+{{< /cve >}}
+
+{{< cve id="NBB-2026-0263" tech="Naver" icon="https://cdn.simpleicons.org/naver" type="Cross Origin DOM XSS" cvss="v4" score="N/A" bounty="200" title="Chzzk Account Takeover and PII Leakage via Cross-Origin DOM-Based XSS">}}
+{{< /cve >}}
+
+{{< cve id="HVE-2026-0022" tech="Hspace" icon="/img/hspace-logo.png" type="Account Takeover" sev="Critical" bounty="1,200" title="Account Takeover via Unverified Refresh Token Signature">}}
+{{< /cve >}}
+
+{{< cve id="CVE-2026-5241" tech="Huggingface" icon="https://cdn.simpleicons.org/huggingface/transformers" type="Remote Code Execution" cvss="v3.1"  bounty="750" score="9.6" level="Critical" title="Arbitrary code execution via nested trust_remote_code bypass" nvd="https://nvd.nist.gov/vuln/detail/CVE-2026-5241">}}
 {{< /cve >}}
 
 {{< cve id="CVE-2025-66960" tech="Ollama" icon="https://cdn.simpleicons.org/ollama" type="Denial of Service" cvss="v3" score="7.5" level="High" title="GGUF v1 string length panics readGGUFV1String" link="/blog/cve-2025-66960guf-v1-string-length-cause-panic-in-readggufv1string/" nvd="https://nvd.nist.gov/vuln/detail/CVE-2025-66960" >}}

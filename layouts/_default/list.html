@@ -5,21 +5,59 @@
   {{- with .Content }}<div class="post-description">{{ . }}</div>{{- end }}
 </header>
 
-{{- $paginator := .Paginate .Pages }}
+{{- /* Collapse each translated pair down to one row, preferring the EN page. */ -}}
+{{- $visible := slice }}
+{{- range .Pages }}
+  {{- $cur := . }}
+  {{- $show := true }}
+  {{- with .Params.translationKey }}
+    {{- $vs := where site.RegularPages "Params.translationKey" . }}
+    {{- if gt (len $vs) 1 }}
+      {{- $rep := index $vs 0 }}
+      {{- range $vs }}{{ if eq (upper (.Params.lang | default "")) "EN" }}{{ $rep = . }}{{ end }}{{ end }}
+      {{- if ne $rep.Permalink $cur.Permalink }}{{ $show = false }}{{ end }}
+    {{- end }}
+  {{- end }}
+  {{- if $show }}{{ $visible = $visible | append $cur }}{{ end }}
+{{- end }}
+
+{{- /* Tag counts are taken over every visible row, not just this page. */ -}}
+{{- $tagNames := slice }}
+{{- range $visible }}{{ range .GetTerms "tags" }}{{ $tagNames = $tagNames | append .LinkTitle }}{{ end }}{{ end }}
+{{- $uniqTags := sort (uniq $tagNames) }}
+{{- if and (ne $kind "term") (gt (len $uniqTags) 1) }}
+<nav class="tag-filter" aria-label="Filter posts by tag">
+  <button type="button" class="tag-chip is-active" data-tag="all" aria-pressed="true">All<span class="tag-chip-n">{{ len $visible }}</span></button>
+  {{- range $t := $uniqTags }}
+  {{- $n := 0 }}{{ range $tagNames }}{{ if eq . $t }}{{ $n = add $n 1 }}{{ end }}{{ end }}
+  <button type="button" class="tag-chip" data-tag="{{ urlize $t }}" aria-pressed="false">{{ $t }}<span class="tag-chip-n">{{ $n }}</span></button>
+  {{- end }}
+</nav>
+{{- end }}
+
+{{- $paginator := .Paginate $visible }}
 {{- range $paginator.Pages }}
 {{- $cur := . }}
-{{- $show := true }}
+{{- $rowTags := slice }}
+{{- range .GetTerms "tags" }}{{ $rowTags = $rowTags | append (urlize .LinkTitle) }}{{ end }}
+{{- $date := .Params.dateString }}
+{{- if and (not $date) (not .Date.IsZero) }}{{ $date = .Date.Format "Jan 2006" }}{{ end }}
+{{- $langs := slice }}
 {{- with .Params.translationKey }}
-{{- $vs := where site.RegularPages "Params.translationKey" . }}
-{{- if gt (len $vs) 1 }}
-{{- $rep := index $vs 0 }}
-{{- range $vs }}{{ if eq (upper (.Params.lang | default "")) "EN" }}{{ $rep = . }}{{ end }}{{ end }}
-{{- if ne $rep.Permalink $cur.Permalink }}{{ $show = false }}{{ end }}
+  {{- $vs := where site.RegularPages "Params.translationKey" . }}
+  {{- if gt (len $vs) 1 }}
+    {{- range $vs }}{{ $langs = $langs | append (dict "lang" (upper (.Params.lang | default "?")) "url" .RelPermalink "cur" (eq .Permalink $cur.Permalink)) }}{{ end }}
+    {{- $langs = sort $langs "lang" }}
+  {{- end }}
 {{- end }}
-{{- end }}
-{{- if $show }}
-<article class="post-entry">
-  <div class="entry-header">
+<article class="post-entry" data-tags="{{ delimit $rowTags " " }}">
+  <div class="entry-meta">
+    {{- with $date }}<span class="entry-date">{{ . }}</span>{{- end }}
+    {{- with $langs }}
+    <span class="entry-langs">
+      {{- range . }}<a class="entry-lang{{ if .cur }} is-cur{{ end }}" href="{{ .url }}">{{ .lang }}</a>{{ end }}
+    </span>
+    {{- end }}
     {{- if ne $kind "term" }}
     {{- with .GetTerms "tags" }}
     <span class="entry-tags">
@@ -27,10 +65,10 @@
     </span>
     {{- end }}
     {{- end }}
-    <h2 class="entry-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
   </div>
+  <h2 class="entry-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+  {{- with .Description }}<p class="entry-desc">{{ . }}</p>{{- end }}
 </article>
-{{- end }}
 {{- end }}
 
 {{- if gt $paginator.TotalPages 1 }}

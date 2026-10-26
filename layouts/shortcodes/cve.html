@@ -1,31 +1,59 @@
-{{- $id := .Get "id" -}}
-{{- $tech := .Get "tech" -}}
-{{- $icon := .Get "icon" -}}
-{{- $type := .Get "type" -}}
+{{- $id        := .Get "id" -}}
+{{- $tech      := .Get "tech" -}}
+{{- $icon      := .Get "icon" -}}
+{{- $type      := .Get "type" -}}
 {{- $typecolor := .Get "typecolor" -}}
-{{- $cvss := .Get "cvss" | default "v3" -}}
-{{- $score := .Get "score" -}}
-{{- $level := .Get "level" -}}
-{{- $title := .Get "title" -}}
-{{- $link := .Get "link" -}}
-<details class="cve" data-sev="{{ lower ($level | default "") }}">
+{{- $cvss      := .Get "cvss" | default "v3" -}}
+{{- $score     := .Get "score" -}}
+{{- $level     := .Get "level" -}}
+{{- $sev       := .Get "sev" -}}
+{{- $sevcolor  := .Get "sevcolor" -}}
+{{- $bounty    := .Get "bounty" -}}
+{{- $currency  := .Get "currency" | default "USD" -}}
+{{- $title     := .Get "title" -}}
+{{- $link      := .Get "link" -}}
+
+{{- /* sev="P1" replaces the CVSS badge outright; level still drives the colour. */ -}}
+{{- $sevlabel := "" -}}
+{{- if $sev -}}
+  {{- $sevlabel = $sev -}}
+{{- else if $score -}}
+  {{- $sevlabel = printf "%s: %s" $cvss $score -}}
+  {{- if $level }}{{ $sevlabel = printf "%s %s" $sevlabel $level }}{{ end -}}
+{{- end -}}
+{{- $sevkey := lower ($level | default ($sev | default "")) -}}
+
+{{- $body := trim .Inner " \n\t" -}}
+{{- $hasLinks := or $link (or (.Get "nvd") (or (.Get "github") (or (.Get "report") (.Get "program")))) -}}
+{{- $hasBody := or $body $hasLinks -}}
+
+<details class="cve{{ if not $hasBody }} no-toggle{{ end }}" data-sev="{{ $sevkey }}">
   <summary class="cve-summary">
     <div class="cve-main">
       {{- with $icon }}<img class="cve-icon" src="{{ . }}" alt="{{ $tech }}" loading="lazy">{{- end }}
       {{- with $tech }}<span class="cve-tech">{{ . }}</span>{{- end }}
-      <span class="cve-id">{{ $id }}</span>
+      {{- with $id }}<span class="cve-id">{{ . }}</span>{{- end }}
       {{- with $type }}<span class="cve-type"{{ with $typecolor }} style="color: {{ . }}; border-color: {{ . }};"{{ end }}>{{ . }}</span>{{- end }}
-      {{- if $score }}<span class="cve-sev">{{ $cvss }}: {{ $score }}{{ with $level }} {{ . }}{{ end }}</span>{{- end }}
-      <svg class="cve-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      <span class="cve-badges">
+        {{- if $sevlabel }}<span class="cve-sev"{{ if $sevcolor }} style="color: {{ $sevcolor }}; border-color: {{ $sevcolor }};"{{ end }}>{{ $sevlabel }}</span>{{ end }}
+        {{- if $bounty }}<span class="cve-bounty">+{{ $bounty }}{{ $currency }}</span>{{ end }}
+      </span>
+      {{- if $hasBody }}<svg class="cve-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>{{- end }}
     </div>
     {{- with $title }}<div class="cve-title">{{ . | markdownify }}</div>{{- end }}
   </summary>
+  {{- if $hasBody }}
   <div class="cve-body">
-    {{- with trim .Inner " \n\t" }}<div class="cve-desc">{{ . | markdownify }}</div>{{- end }}
+    {{- with $body }}<div class="cve-desc">{{ . | markdownify }}</div>{{- end }}
+    {{- if $hasLinks }}
     <div class="cve-links">
-      {{- with $link }}<a class="cve-detaillink" href="{{ . }}">CVE Details &rarr;</a>{{- end }}
+      {{- with $link }}<a class="cve-detaillink" href="{{ . }}">Details &rarr;</a>{{- end }}
       {{- with .Get "nvd" }}<a class="cve-detaillink" href="{{ . }}" target="_blank" rel="noopener">NVD &rarr;</a>{{- end }}
       {{- with .Get "github" }}<a class="cve-detaillink" href="{{ . }}" target="_blank" rel="noopener">GitHub &rarr;</a>{{- end }}
+      {{- with .Get "report" }}<a class="cve-detaillink" href="{{ . }}" target="_blank" rel="noopener">Report &rarr;</a>{{- end }}
+      {{- with .Get "program" }}<a class="cve-detaillink" href="{{ . }}" target="_blank" rel="noopener">Program &rarr;</a>{{- end }}
     </div>
+    {{- end }}
   </div>
+  {{- end }}
 </details>
