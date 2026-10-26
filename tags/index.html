@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="https://zero.shotlearni.ng/tags/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.cdf70243805aa98afa0590756b43bcb707ac19bef4aedb301df90a92557a205b.css" integrity="sha256-zfcCQ4BaqYr6BZB1a0O8twesGb70rtswHfkKklV6IFs=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.7a919aedb786f3556778ec776af4ed045cfbe2675193f82facfe82faada12dec.css" integrity="sha256-epGa7beG81VneOx3avTtBFz74mdRk/gvrP6C&#43;q2hLew=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://zero.shotlearni.ng/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://zero.shotlearni.ng/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://zero.shotlearni.ng/favicon-32x32.png">
@@ -160,6 +160,33 @@
       current.appendChild(n);
     });
     sections.forEach(function (s) { content.appendChild(s); });
+  }
+
+  var filter = document.querySelector('.tag-filter');
+  if (filter) {
+    var chips = Array.prototype.slice.call(filter.querySelectorAll('.tag-chip'));
+    var entries = Array.prototype.slice.call(document.querySelectorAll('.post-entry[data-tags]'));
+    var known = chips.map(function (c) { return c.getAttribute('data-tag'); });
+    var apply = function (tag) {
+      entries.forEach(function (e) {
+        var tags = (e.getAttribute('data-tags') || '').split(' ');
+        e.hidden = !(tag === 'all' || tags.indexOf(tag) !== -1);
+      });
+      chips.forEach(function (c) {
+        var on = c.getAttribute('data-tag') === tag;
+        c.classList.toggle('is-active', on);
+        c.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+    };
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        var t = c.getAttribute('data-tag');
+        apply(t);
+        history.replaceState(null, '', t === 'all' ? location.pathname : '#' + t);
+      });
+    });
+    var init = (location.hash || '').replace('#', '');
+    apply(known.indexOf(init) !== -1 ? init : 'all');
   }
 
   var targets = document.querySelectorAll('.js-reveal');
