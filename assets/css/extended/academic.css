@@ -219,7 +219,9 @@ button#theme-toggle { font-size: 20px; color: var(--secondary); }
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 14px;
-  align-items: baseline;
+  /* Centred, not baseline: a row with a subtitle is two lines tall, and the
+     badges should sit against the block, not ride on the title's baseline. */
+  align-items: center;
   padding: 10px 0;
   border-top: 1px solid var(--border);
 }
