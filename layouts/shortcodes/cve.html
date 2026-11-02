@@ -27,7 +27,7 @@
 {{- $hasLinks := or $link (or (.Get "nvd") (or (.Get "github") (or (.Get "report") (.Get "program")))) -}}
 {{- $hasBody := or $body $hasLinks -}}
 
-<details class="cve{{ if not $hasBody }} no-toggle{{ end }}" data-sev="{{ $sevkey }}">
+<details class="cve sev-host{{ if not $hasBody }} no-toggle{{ end }}" data-sev="{{ $sevkey }}">
   <summary class="cve-summary">
     <div class="cve-main">
       {{- with $icon }}<img class="cve-icon" src="{{ . }}" alt="{{ $tech }}" loading="lazy">{{- end }}

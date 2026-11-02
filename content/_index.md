@@ -50,11 +50,15 @@ cv: "/cv/"
 
 ## CVEs & Bounties
 
-{{< cve tech="Kantega SSO" icon="/img/kantega-sso-logo.png" type="Authentication Bypass" sev="P1" bounty="1,500" >}}
-{{< /cve >}}
+{{< bounty tech="Kantega SSO" icon="/img/kantega-sso-logo.png" >}}
+  {{< finding type="Authentication Bypass" sev="P1" bounty="1,500" >}}
+  {{< finding type="Authentication Bypass" sev="P2" bounty="900" title="Host header sets the expected SAML audience, so another SP's assertion signs in as any Atlassian account" >}}
+  {{< finding type="Insufficient Session Expiration" sev="P4" bounty="100" title="Per-group token lifetime cap is not enforced, so a user can mint Bamboo API tokens that never expire" >}}
+{{< /bounty >}}
 
-{{< cve tech="Atlassian-Built Apps" icon="https://cdn.simpleicons.org/atlassian" type="Broken Authentication and Session Management" sev="P2" bounty="1,000" >}}
-{{< /cve >}}
+{{< bounty tech="Atlassian-Built Apps" icon="https://cdn.simpleicons.org/atlassian" >}}
+  {{< finding type="Broken Authentication and Session Management" sev="P2" bounty="1,000" >}}
+{{< /bounty >}}
 
 {{< cve id="NBB-2026-0263" tech="Naver" icon="https://cdn.simpleicons.org/naver" type="Cross Origin DOM XSS" cvss="v4" score="N/A" bounty="200" title="Chzzk Account Takeover and PII Leakage via Cross-Origin DOM-Based XSS">}}
 {{< /cve >}}

@@ -1,0 +1,45 @@
+{{- $type      := .Get "type" -}}
+{{- $title     := .Get "title" -}}
+{{- $id        := .Get "id" -}}
+{{- $cvss      := .Get "cvss" | default "v3" -}}
+{{- $score     := .Get "score" -}}
+{{- $level     := .Get "level" -}}
+{{- $sev       := .Get "sev" -}}
+{{- $sevcolor  := .Get "sevcolor" -}}
+{{- $bounty    := .Get "bounty" -}}
+{{- $currency  := .Get "currency" | default "$" -}}
+{{- $date      := .Get "date" -}}
+{{- $link      := .Get "link" | default (.Get "report") -}}
+
+{{- /* Same rule as {{< cve >}}: sev="P1" replaces the CVSS badge outright,
+       level still drives the colour. */ -}}
+{{- $sevlabel := "" -}}
+{{- if $sev -}}
+  {{- $sevlabel = $sev -}}
+{{- else if $score -}}
+  {{- $sevlabel = printf "%s: %s" $cvss $score -}}
+  {{- if $level }}{{ $sevlabel = printf "%s %s" $sevlabel $level }}{{ end -}}
+{{- end -}}
+{{- $sevkey := lower ($level | default ($sev | default "")) -}}
+
+{{- /* Digits only, so the parent {{< bounty >}} can sum the rows. */ -}}
+{{- $amount := replaceRE `\D` `` ($bounty | default "") -}}
+
+{{- $sub := slice -}}
+{{- with $title }}{{ $sub = $sub | append . }}{{ end -}}
+{{- with $id }}{{ $sub = $sub | append . }}{{ end -}}
+{{- with $date }}{{ $sub = $sub | append . }}{{ end -}}
+
+<div class="finding-row sev-host" data-sev="{{ $sevkey }}"{{ with $amount }} data-amount="{{ . }}"{{ end }}>
+  <div class="finding-main">
+    <div class="finding-type">
+      {{- if $link }}<a href="{{ $link }}"{{ if hasPrefix $link "http" }} target="_blank" rel="noopener"{{ end }}>{{ $type | markdownify }}</a>
+      {{- else }}{{ $type | markdownify }}{{ end -}}
+    </div>
+    {{- with $sub }}<div class="finding-sub">{{ delimit . " · " | markdownify }}</div>{{- end }}
+  </div>
+  <div class="finding-badges">
+    {{- if $sevlabel }}<span class="cve-sev"{{ with $sevcolor }} style="color: {{ . }}; border-color: {{ . }};"{{ end }}>{{ $sevlabel }}</span>{{ end }}
+    {{- with $bounty }}<span class="cve-bounty">+{{ . }} {{ $currency }}</span>{{ end }}
+  </div>
+</div>

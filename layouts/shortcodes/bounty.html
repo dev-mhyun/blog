@@ -1,0 +1,49 @@
+{{- $tech     := .Get "tech" -}}
+{{- $icon     := .Get "icon" -}}
+{{- $sev      := .Get "sev" -}}
+{{- $sevcolor := .Get "sevcolor" -}}
+{{- $currency := .Get "currency" | default "$" -}}
+{{- $label    := .Get "label" -}}
+{{- $note     := trim (.Get "note" | default "") " " -}}
+{{- $inner    := .Inner -}}
+
+{{- /* The nested {{< finding >}} rows carry the numbers; roll them up here so
+       the headline count and total can never drift from the rows below. */ -}}
+{{- $n := len (findRE `class="finding-row` $inner) -}}
+{{- $total := 0 -}}
+{{- range (findRE `data-amount="[0-9]+"` $inner) -}}
+  {{- $total = add $total (int (replaceRE `\D` `` .)) -}}
+{{- end -}}
+{{- $sum := .Get "bounty" -}}
+{{- if and (not $sum) (gt $total 0) }}{{ $sum = lang.FormatNumberCustom 0 $total }}{{ end -}}
+
+{{- $hasLinks := or (.Get "program") (or (.Get "report") (.Get "link")) -}}
+{{- $hasBody := or (gt $n 0) $hasLinks -}}
+
+<details class="cve sev-host bounty{{ if not $hasBody }} no-toggle{{ end }}" data-sev="{{ lower ($sev | default "") }}">
+  <summary class="cve-summary">
+    <div class="cve-main">
+      {{- with $icon }}<img class="cve-icon" src="{{ . }}" alt="{{ $tech }}" loading="lazy">{{- end }}
+      {{- with $tech }}<span class="bounty-prog">{{ . }}</span>{{- end }}
+      <span class="cve-badges">
+        {{- if $n }}<span class="bounty-count">{{ with $label }}{{ . }}{{ else }}{{ $n }} finding{{ if gt $n 1 }}s{{ end }}{{ end }}</span>{{ end }}
+        {{- with $sev }}<span class="cve-sev"{{ with $sevcolor }} style="color: {{ . }}; border-color: {{ . }};"{{ end }}>{{ . }}</span>{{ end }}
+        {{- with $sum }}<span class="cve-bounty">+{{ . }} {{ $currency }}</span>{{ end }}
+      </span>
+      {{- if $hasBody }}<svg class="cve-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>{{- end }}
+    </div>
+    {{- with $note }}<div class="bounty-note">{{ . | markdownify }}</div>{{- end }}
+  </summary>
+  {{- if $hasBody }}
+  <div class="cve-body bounty-body">
+    {{ $inner }}
+    {{- if $hasLinks }}
+    <div class="cve-links bounty-links">
+      {{- with .Get "link" }}<a class="cve-detaillink" href="{{ . }}">Details &rarr;</a>{{- end }}
+      {{- with .Get "report" }}<a class="cve-detaillink" href="{{ . }}" target="_blank" rel="noopener">Report &rarr;</a>{{- end }}
+      {{- with .Get "program" }}<a class="cve-detaillink" href="{{ . }}" target="_blank" rel="noopener">Program &rarr;</a>{{- end }}
+    </div>
+    {{- end }}
+  </div>
+  {{- end }}
+</details>

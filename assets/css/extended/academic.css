@@ -152,15 +152,15 @@ button#theme-toggle { font-size: 20px; color: var(--secondary); }
   margin: 12px 0;
 }
 .dark .cve { --bnt: #7cc99a; --bnt-bg: rgba(124, 201, 154, .1); }
-.cve[data-sev="critical"], .cve[data-sev="p1"] { --sv: #b3261e; }
-.cve[data-sev="high"],     .cve[data-sev="p2"] { --sv: #c2410c; }
-.cve[data-sev="medium"],   .cve[data-sev="p3"] { --sv: #b45309; }
-.cve[data-sev="low"],      .cve[data-sev="p4"] { --sv: #3f7d4f; }
-.cve[data-sev="informational"], .cve[data-sev="p5"] { --sv: var(--secondary); }
-.dark .cve[data-sev="critical"], .dark .cve[data-sev="p1"] { --sv: #f87171; }
-.dark .cve[data-sev="high"],     .dark .cve[data-sev="p2"] { --sv: #fb923c; }
-.dark .cve[data-sev="medium"],   .dark .cve[data-sev="p3"] { --sv: #fbbf24; }
-.dark .cve[data-sev="low"],      .dark .cve[data-sev="p4"] { --sv: #86c997; }
+.sev-host[data-sev="critical"], .sev-host[data-sev="p1"] { --sv: #b3261e; }
+.sev-host[data-sev="high"],     .sev-host[data-sev="p2"] { --sv: #c2410c; }
+.sev-host[data-sev="medium"],   .sev-host[data-sev="p3"] { --sv: #b45309; }
+.sev-host[data-sev="low"],      .sev-host[data-sev="p4"] { --sv: #3f7d4f; }
+.sev-host[data-sev="informational"], .sev-host[data-sev="p5"] { --sv: var(--secondary); }
+.dark .sev-host[data-sev="critical"], .dark .sev-host[data-sev="p1"] { --sv: #f87171; }
+.dark .sev-host[data-sev="high"],     .dark .sev-host[data-sev="p2"] { --sv: #fb923c; }
+.dark .sev-host[data-sev="medium"],   .dark .sev-host[data-sev="p3"] { --sv: #fbbf24; }
+.dark .sev-host[data-sev="low"],      .dark .sev-host[data-sev="p4"] { --sv: #86c997; }
 
 .cve-summary { list-style: none; cursor: pointer; padding: 15px 18px; }
 .cve-summary::-webkit-details-marker { display: none; }
@@ -198,6 +198,44 @@ button#theme-toggle { font-size: 20px; color: var(--secondary); }
 @media (max-width: 640px) {
   .cve-title, .cve-body { padding-inline-start: 18px; }
   .cve-badges { margin-inline-start: 0; }
+}
+
+/* ── Bounty programme roll-up ──────────────────────────────────────────────
+   Reuses the .cve card chrome: one card is one programme, and the drawer
+   lists the individual findings, each with its own severity and payout.
+   The summary badges are derived from the rows, never typed twice. */
+.bounty-prog { font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--primary); }
+.bounty-count {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  color: var(--secondary); border: 1px solid var(--border-strong);
+  border-radius: 8px; padding: 2px 9px; white-space: nowrap;
+}
+.bounty-note { font-family: var(--sans); font-size: 13px; color: var(--secondary); margin-top: 8px; padding-inline-start: 33px; }
+.bounty-body { padding: 0 18px 14px 51px; }
+.bounty-links { margin-top: 12px; }
+
+.finding-row {
+  --sv: var(--secondary);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+}
+.finding-row:first-child { border-top: none; padding-top: 2px; }
+.finding-main { min-width: 0; }
+.finding-type { font-family: var(--serif); font-size: 15.5px; font-weight: 600; color: var(--primary); line-height: 1.35; }
+.finding-type a { color: var(--primary); text-decoration: none; box-shadow: none; }
+.finding-type a:hover { color: var(--accent); }
+.finding-sub { font-family: var(--sans); font-size: 12.5px; color: var(--secondary); margin-top: 3px; }
+.finding-type p, .finding-sub p { margin: 0; }
+.finding-badges { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+
+@media (max-width: 640px) {
+  .bounty-note, .bounty-body { padding-inline-start: 18px; }
+  .finding-row { grid-template-columns: 1fr; gap: 6px; }
+  .finding-badges { justify-content: flex-start; }
 }
 
 .award {
