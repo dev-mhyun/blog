@@ -52,8 +52,9 @@ cv: "/cv/"
 
 {{< bounty tech="Kantega SSO" icon="/img/kantega-sso-logo.png" >}}
   {{< finding type="Authentication Bypass" sev="P1" bounty="1,500" >}}
-  {{< finding type="Authentication Bypass" sev="P2" bounty="900" title="Host header sets the expected SAML audience, so another SP's assertion signs in as any Atlassian account" >}}
-  {{< finding type="Insufficient Session Expiration" sev="P4" bounty="100" title="Per-group token lifetime cap is not enforced, so a user can mint Bamboo API tokens that never expire" >}}
+  {{< finding type="Authentication Bypass" sev="P2" bounty="900" >}}
+  {{< finding type="Privilege Escalation" sev="P3" bounty="300" >}}
+  {{< finding type="Insufficient Session Expiration" sev="P4" bounty="100" >}}
 {{< /bounty >}}
 
 {{< bounty tech="Atlassian-Built Apps" icon="https://cdn.simpleicons.org/atlassian" >}}
