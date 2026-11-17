@@ -28,7 +28,7 @@ cv: "/cv/"
 - NDA
 {{< /entry >}}
 
-{{< entry date="Nov 2025 – Jan 2026" title="ML Engineer" org="[**Microsoft Singapore**](https://local.microsoft.com/communities/asia-pacific/singapore/) (Outsourcing)" >}}
+{{< entry date="Nov 2025 – May 2026" title="ML Engineer" org="[**Microsoft Singapore**](https://local.microsoft.com/communities/asia-pacific/singapore/) (Outsourcing)" >}}
 - ML Engineer for an AI model-based service demo optimized for Microsoft laptop NPUs (for Microsoft client showcases)
 {{< /entry >}}
 
