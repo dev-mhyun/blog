@@ -226,7 +226,7 @@
 <details class="cve sev-host bounty" data-sev="">
   <summary class="cve-summary">
     <div class="cve-main"><img class="cve-icon" src="/img/kantega-sso-logo.png" alt="Kantega SSO" loading="lazy"><span class="bounty-prog">Kantega SSO</span>
-      <span class="cve-badges"><span class="bounty-count">3 findings</span><span class="cve-bounty">+2,500 $</span>
+      <span class="cve-badges"><span class="bounty-count">4 findings</span><span class="cve-bounty">+2,800 $</span>
       </span><svg class="cve-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
     </div>
   </summary>
@@ -242,15 +242,23 @@
 
   <div class="finding-row sev-host" data-sev="p2" data-amount="900">
     <div class="finding-main">
-      <div class="finding-type">Authentication Bypass</div><div class="finding-sub">Host header sets the expected SAML audience, so another SP&rsquo;s assertion signs in as any Atlassian account</div>
+      <div class="finding-type">Authentication Bypass</div>
     </div>
     <div class="finding-badges"><span class="cve-sev">P2</span><span class="cve-bounty">+900 $</span>
     </div>
   </div>
 
+  <div class="finding-row sev-host" data-sev="p3" data-amount="300">
+    <div class="finding-main">
+      <div class="finding-type">Privilege Escalation</div>
+    </div>
+    <div class="finding-badges"><span class="cve-sev">P3</span><span class="cve-bounty">+300 $</span>
+    </div>
+  </div>
+
   <div class="finding-row sev-host" data-sev="p4" data-amount="100">
     <div class="finding-main">
-      <div class="finding-type">Insufficient Session Expiration</div><div class="finding-sub">Per-group token lifetime cap is not enforced, so a user can mint Bamboo API tokens that never expire</div>
+      <div class="finding-type">Insufficient Session Expiration</div>
     </div>
     <div class="finding-badges"><span class="cve-sev">P4</span><span class="cve-bounty">+100 $</span>
     </div>
